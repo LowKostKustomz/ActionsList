@@ -1,42 +1,17 @@
-#
-# Be sure to run `pod lib lint ActionsList.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'ActionsList'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ActionsList.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.version          = '0.9.0'
+  s.summary          = 'Present Apple QuickActionsMenu-like lists in your app.'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+ActionsList is an iOS framework for presenting actions lists similar to Apple's Quick Actions menu. It is the best replace for the Android's floating action button in iOS if your app is following the iOS Design Guidelines.
                        DESC
 
   s.homepage         = 'https://github.com/LowKostKustomz/ActionsList'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LowKostKustomz' => 'mierosh@gmail.com' }
   s.source           = { :git => 'https://github.com/LowKostKustomz/ActionsList.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'ActionsList/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'ActionsList' => ['ActionsList/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.social_media_url = 'https://twitter.com/LowKostKustomz'
+  s.ios.deployment_target = '9.0'
+  s.source_files = 'ActionsList/Classes/**/*.{swift}'
+  s.frameworks = 'UIKit'
 end
