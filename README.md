@@ -54,7 +54,7 @@ StatusAlert is available via CocoaPods and Carthage.
 To install StatusAlert using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile`:
 
 ```ruby
-pod 'ActionsList' set version
+pod 'ActionsList', '~> 0.9.0'
 ```
 
 ### Carthage
@@ -62,7 +62,7 @@ pod 'ActionsList' set version
 To install StatusAlert using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
 ```ruby
-github "LowKostKustomz/ActionsList" set version
+github "LowKostKustomz/ActionsList" ~> 0.9.0
 ```
 
 ## Demo

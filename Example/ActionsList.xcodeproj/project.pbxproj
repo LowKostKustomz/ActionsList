@@ -15,6 +15,35 @@
 		875D574DDDD507ADEAF1D150 /* Pods_ActionsList_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091FF1B90EB6BADE700034FD /* Pods_ActionsList_Tests.framework */; };
 		9B5C3D16D242402A4AD36023 /* Pods_ActionsList_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6313AD31F9C1DD0E3EE7CF5 /* Pods_ActionsList_Example.framework */; };
 		E9CED96F1FE5F7D9000C63D3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED96E1FE5F7D9000C63D3 /* TabBarViewController.swift */; };
+		E9CED9791FE6028D000C63D3 /* ActionsList.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CED9771FE6028D000C63D3 /* ActionsList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9CED97C1FE6028D000C63D3 /* ActionsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; };
+		E9CED97D1FE6028D000C63D3 /* ActionsList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9CED9D01FE60316000C63D3 /* ActionsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9AF1FE60300000C63D3 /* ActionsListModel.swift */; };
+		E9CED9D11FE60316000C63D3 /* ActionsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B01FE60300000C63D3 /* ActionsListPresenter.swift */; };
+		E9CED9D21FE60316000C63D3 /* ActionsListAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B31FE60300000C63D3 /* ActionsListAppearance.swift */; };
+		E9CED9D31FE60316000C63D3 /* FeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B41FE60300000C63D3 /* FeedbackGenerator.swift */; };
+		E9CED9D41FE60316000C63D3 /* ActionsListUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B51FE60300000C63D3 /* ActionsListUtils.swift */; };
+		E9CED9D51FE60316000C63D3 /* UIDevice+HasHapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B71FE60300000C63D3 /* UIDevice+HasHapticEngine.swift */; };
+		E9CED9D61FE60316000C63D3 /* UIButton+ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B81FE60300000C63D3 /* UIButton+ActionsList.swift */; };
+		E9CED9D71FE60316000C63D3 /* UITabBarItem+ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B91FE60300000C63D3 /* UITabBarItem+ActionsList.swift */; };
+		E9CED9D81FE60316000C63D3 /* UIDevice+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9BA1FE60300000C63D3 /* UIDevice+Blur.swift */; };
+		E9CED9D91FE60316000C63D3 /* UIBarButtonItem+ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9BB1FE60300000C63D3 /* UIBarButtonItem+ActionsList.swift */; };
+		E9CED9DA1FE60316000C63D3 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9BC1FE60300000C63D3 /* UIView+Layout.swift */; };
+		E9CED9DB1FE60316000C63D3 /* UIDevice+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9BD1FE60300000C63D3 /* UIDevice+Platform.swift */; };
+		E9CED9DC1FE60316000C63D3 /* ActionsListBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9BF1FE60300000C63D3 /* ActionsListBackgroundView.swift */; };
+		E9CED9DD1FE60316000C63D3 /* BlurredActionsListBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C01FE60300000C63D3 /* BlurredActionsListBackgroundView.swift */; };
+		E9CED9DE1FE60316000C63D3 /* ActionsListBackgroundViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C11FE60300000C63D3 /* ActionsListBackgroundViewBuilder.swift */; };
+		E9CED9DF1FE60316000C63D3 /* DimmedActionsListBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C21FE60300000C63D3 /* DimmedActionsListBackgroundView.swift */; };
+		E9CED9E01FE60316000C63D3 /* ActionsListDefaultButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C31FE60300000C63D3 /* ActionsListDefaultButtonModel.swift */; };
+		E9CED9E11FE60316000C63D3 /* ActionsListScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C51FE60300000C63D3 /* ActionsListScrollView.swift */; };
+		E9CED9E21FE60316000C63D3 /* ActionsListDefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C71FE60300000C63D3 /* ActionsListDefaultButton.swift */; };
+		E9CED9E31FE60316000C63D3 /* ActionsListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C81FE60300000C63D3 /* ActionsListButton.swift */; };
+		E9CED9E41FE60316000C63D3 /* ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9C91FE60300000C63D3 /* ActionsList.swift */; };
+		E9CED9E51FE60316000C63D3 /* ActionsListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9CA1FE60300000C63D3 /* ActionsListContainer.swift */; };
+		E9CED9E61FE60316000C63D3 /* ActionsListControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9CB1FE60300000C63D3 /* ActionsListControl.swift */; };
+		E9CED9E71FE60316000C63D3 /* ActionsListStackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9CC1FE60300000C63D3 /* ActionsListStackViewBuilder.swift */; };
+		E9CED9E81FE60316000C63D3 /* ActionsListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9CE1FE60300000C63D3 /* ActionsListSeparator.swift */; };
+		E9CED9E91FE60316000C63D3 /* ActionsListSeparatorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9CF1FE60300000C63D3 /* ActionsListSeparatorBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,7 +54,28 @@
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = ActionsList;
 		};
+		E9CED97A1FE6028D000C63D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9CED9741FE6028D000C63D3;
+			remoteInfo = ActionsList;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9CED9811FE6028D000C63D3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9CED97D1FE6028D000C63D3 /* ActionsList.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		091FF1B90EB6BADE700034FD /* Pods_ActionsList_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionsList_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +97,36 @@
 		C9629E1CA1EB420C4021A438 /* Pods-ActionsList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionsList_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionsList_Example/Pods-ActionsList_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E6313AD31F9C1DD0E3EE7CF5 /* Pods_ActionsList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionsList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CED96E1FE5F7D9000C63D3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E9CED9751FE6028D000C63D3 /* ActionsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CED9771FE6028D000C63D3 /* ActionsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionsList.h; sourceTree = "<group>"; };
+		E9CED9781FE6028D000C63D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9CED9AF1FE60300000C63D3 /* ActionsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListModel.swift; sourceTree = "<group>"; };
+		E9CED9B01FE60300000C63D3 /* ActionsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListPresenter.swift; sourceTree = "<group>"; };
+		E9CED9B11FE60300000C63D3 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		E9CED9B31FE60300000C63D3 /* ActionsListAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListAppearance.swift; sourceTree = "<group>"; };
+		E9CED9B41FE60300000C63D3 /* FeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGenerator.swift; sourceTree = "<group>"; };
+		E9CED9B51FE60300000C63D3 /* ActionsListUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListUtils.swift; sourceTree = "<group>"; };
+		E9CED9B71FE60300000C63D3 /* UIDevice+HasHapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+HasHapticEngine.swift"; sourceTree = "<group>"; };
+		E9CED9B81FE60300000C63D3 /* UIButton+ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ActionsList.swift"; sourceTree = "<group>"; };
+		E9CED9B91FE60300000C63D3 /* UITabBarItem+ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+ActionsList.swift"; sourceTree = "<group>"; };
+		E9CED9BA1FE60300000C63D3 /* UIDevice+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Blur.swift"; sourceTree = "<group>"; };
+		E9CED9BB1FE60300000C63D3 /* UIBarButtonItem+ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ActionsList.swift"; sourceTree = "<group>"; };
+		E9CED9BC1FE60300000C63D3 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		E9CED9BD1FE60300000C63D3 /* UIDevice+Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Platform.swift"; sourceTree = "<group>"; };
+		E9CED9BF1FE60300000C63D3 /* ActionsListBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListBackgroundView.swift; sourceTree = "<group>"; };
+		E9CED9C01FE60300000C63D3 /* BlurredActionsListBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredActionsListBackgroundView.swift; sourceTree = "<group>"; };
+		E9CED9C11FE60300000C63D3 /* ActionsListBackgroundViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListBackgroundViewBuilder.swift; sourceTree = "<group>"; };
+		E9CED9C21FE60300000C63D3 /* DimmedActionsListBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmedActionsListBackgroundView.swift; sourceTree = "<group>"; };
+		E9CED9C31FE60300000C63D3 /* ActionsListDefaultButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListDefaultButtonModel.swift; sourceTree = "<group>"; };
+		E9CED9C51FE60300000C63D3 /* ActionsListScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListScrollView.swift; sourceTree = "<group>"; };
+		E9CED9C71FE60300000C63D3 /* ActionsListDefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListDefaultButton.swift; sourceTree = "<group>"; };
+		E9CED9C81FE60300000C63D3 /* ActionsListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListButton.swift; sourceTree = "<group>"; };
+		E9CED9C91FE60300000C63D3 /* ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsList.swift; sourceTree = "<group>"; };
+		E9CED9CA1FE60300000C63D3 /* ActionsListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListContainer.swift; sourceTree = "<group>"; };
+		E9CED9CB1FE60300000C63D3 /* ActionsListControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListControl.swift; sourceTree = "<group>"; };
+		E9CED9CC1FE60300000C63D3 /* ActionsListStackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListStackViewBuilder.swift; sourceTree = "<group>"; };
+		E9CED9CE1FE60300000C63D3 /* ActionsListSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListSeparator.swift; sourceTree = "<group>"; };
+		E9CED9CF1FE60300000C63D3 /* ActionsListSeparatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsListSeparatorBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CED97C1FE6028D000C63D3 /* ActionsList.framework in Frameworks */,
 				9B5C3D16D242402A4AD36023 /* Pods_ActionsList_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +144,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				875D574DDDD507ADEAF1D150 /* Pods_ActionsList_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CED9711FE6028D000C63D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +171,11 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				E9CED9AE1FE60300000C63D3 /* Classes */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ActionsList */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				E9CED9761FE6028D000C63D3 /* ActionsList */,
 				607FACD11AFB9204008FA782 /* Products */,
 				3F7F0F8AEC4FB53C6E18077A /* Pods */,
 				F1DDB6CD3F2F360D08C21969 /* Frameworks */,
@@ -97,6 +187,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* ActionsListExample.app */,
 				607FACE51AFB9204008FA782 /* ActionsList_Tests.xctest */,
+				E9CED9751FE6028D000C63D3 /* ActionsList.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +241,98 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		E9CED9761FE6028D000C63D3 /* ActionsList */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9771FE6028D000C63D3 /* ActionsList.h */,
+				E9CED9781FE6028D000C63D3 /* Info.plist */,
+			);
+			path = ActionsList;
+			sourceTree = "<group>";
+		};
+		E9CED9AE1FE60300000C63D3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9AF1FE60300000C63D3 /* ActionsListModel.swift */,
+				E9CED9B01FE60300000C63D3 /* ActionsListPresenter.swift */,
+				E9CED9B11FE60300000C63D3 /* .gitkeep */,
+				E9CED9B21FE60300000C63D3 /* Utils */,
+				E9CED9B61FE60300000C63D3 /* Extensions */,
+				E9CED9BE1FE60300000C63D3 /* ActionsListBackgroundView */,
+				E9CED9C31FE60300000C63D3 /* ActionsListDefaultButtonModel.swift */,
+				E9CED9C41FE60300000C63D3 /* ActionsList */,
+			);
+			name = Classes;
+			path = ../ActionsList/Classes;
+			sourceTree = "<group>";
+		};
+		E9CED9B21FE60300000C63D3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9B31FE60300000C63D3 /* ActionsListAppearance.swift */,
+				E9CED9B41FE60300000C63D3 /* FeedbackGenerator.swift */,
+				E9CED9B51FE60300000C63D3 /* ActionsListUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E9CED9B61FE60300000C63D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9B71FE60300000C63D3 /* UIDevice+HasHapticEngine.swift */,
+				E9CED9B81FE60300000C63D3 /* UIButton+ActionsList.swift */,
+				E9CED9B91FE60300000C63D3 /* UITabBarItem+ActionsList.swift */,
+				E9CED9BA1FE60300000C63D3 /* UIDevice+Blur.swift */,
+				E9CED9BB1FE60300000C63D3 /* UIBarButtonItem+ActionsList.swift */,
+				E9CED9BC1FE60300000C63D3 /* UIView+Layout.swift */,
+				E9CED9BD1FE60300000C63D3 /* UIDevice+Platform.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E9CED9BE1FE60300000C63D3 /* ActionsListBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9BF1FE60300000C63D3 /* ActionsListBackgroundView.swift */,
+				E9CED9C01FE60300000C63D3 /* BlurredActionsListBackgroundView.swift */,
+				E9CED9C11FE60300000C63D3 /* ActionsListBackgroundViewBuilder.swift */,
+				E9CED9C21FE60300000C63D3 /* DimmedActionsListBackgroundView.swift */,
+			);
+			path = ActionsListBackgroundView;
+			sourceTree = "<group>";
+		};
+		E9CED9C41FE60300000C63D3 /* ActionsList */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9C51FE60300000C63D3 /* ActionsListScrollView.swift */,
+				E9CED9C61FE60300000C63D3 /* ActionsListButton */,
+				E9CED9C91FE60300000C63D3 /* ActionsList.swift */,
+				E9CED9CA1FE60300000C63D3 /* ActionsListContainer.swift */,
+				E9CED9CB1FE60300000C63D3 /* ActionsListControl.swift */,
+				E9CED9CC1FE60300000C63D3 /* ActionsListStackViewBuilder.swift */,
+				E9CED9CD1FE60300000C63D3 /* ActionsListSeparator */,
+			);
+			path = ActionsList;
+			sourceTree = "<group>";
+		};
+		E9CED9C61FE60300000C63D3 /* ActionsListButton */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9C71FE60300000C63D3 /* ActionsListDefaultButton.swift */,
+				E9CED9C81FE60300000C63D3 /* ActionsListButton.swift */,
+			);
+			path = ActionsListButton;
+			sourceTree = "<group>";
+		};
+		E9CED9CD1FE60300000C63D3 /* ActionsListSeparator */ = {
+			isa = PBXGroup;
+			children = (
+				E9CED9CE1FE60300000C63D3 /* ActionsListSeparator.swift */,
+				E9CED9CF1FE60300000C63D3 /* ActionsListSeparatorBuilder.swift */,
+			);
+			path = ActionsListSeparator;
+			sourceTree = "<group>";
+		};
 		F1DDB6CD3F2F360D08C21969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +343,17 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E9CED9721FE6028D000C63D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CED9791FE6028D000C63D3 /* ActionsList.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		607FACCF1AFB9204008FA782 /* ActionsListExample */ = {
@@ -172,10 +366,12 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				DCF08200D2349B61AAC47ECB /* [CP] Embed Pods Frameworks */,
 				AC7A9941EBC63BEA920637CF /* [CP] Copy Pods Resources */,
+				E9CED9811FE6028D000C63D3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E9CED97B1FE6028D000C63D3 /* PBXTargetDependency */,
 			);
 			name = ActionsListExample;
 			productName = ActionsList;
@@ -203,6 +399,24 @@
 			productReference = 607FACE51AFB9204008FA782 /* ActionsList_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E9CED9741FE6028D000C63D3 /* ActionsList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9CED97E1FE6028D000C63D3 /* Build configuration list for PBXNativeTarget "ActionsList" */;
+			buildPhases = (
+				E9CED9701FE6028D000C63D3 /* Sources */,
+				E9CED9711FE6028D000C63D3 /* Frameworks */,
+				E9CED9721FE6028D000C63D3 /* Headers */,
+				E9CED9731FE6028D000C63D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionsList;
+			productName = ActionsList;
+			productReference = E9CED9751FE6028D000C63D3 /* ActionsList.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,6 +438,11 @@
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
+					E9CED9741FE6028D000C63D3 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = E8RRW68D5D;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ActionsList" */;
@@ -241,6 +460,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* ActionsListExample */,
 				607FACE41AFB9204008FA782 /* ActionsList_Tests */,
+				E9CED9741FE6028D000C63D3 /* ActionsList */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +476,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CED9731FE6028D000C63D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,6 +612,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9CED9701FE6028D000C63D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CED9D01FE60316000C63D3 /* ActionsListModel.swift in Sources */,
+				E9CED9D11FE60316000C63D3 /* ActionsListPresenter.swift in Sources */,
+				E9CED9D21FE60316000C63D3 /* ActionsListAppearance.swift in Sources */,
+				E9CED9D31FE60316000C63D3 /* FeedbackGenerator.swift in Sources */,
+				E9CED9D41FE60316000C63D3 /* ActionsListUtils.swift in Sources */,
+				E9CED9D51FE60316000C63D3 /* UIDevice+HasHapticEngine.swift in Sources */,
+				E9CED9D61FE60316000C63D3 /* UIButton+ActionsList.swift in Sources */,
+				E9CED9D71FE60316000C63D3 /* UITabBarItem+ActionsList.swift in Sources */,
+				E9CED9D81FE60316000C63D3 /* UIDevice+Blur.swift in Sources */,
+				E9CED9D91FE60316000C63D3 /* UIBarButtonItem+ActionsList.swift in Sources */,
+				E9CED9DA1FE60316000C63D3 /* UIView+Layout.swift in Sources */,
+				E9CED9DB1FE60316000C63D3 /* UIDevice+Platform.swift in Sources */,
+				E9CED9DC1FE60316000C63D3 /* ActionsListBackgroundView.swift in Sources */,
+				E9CED9DD1FE60316000C63D3 /* BlurredActionsListBackgroundView.swift in Sources */,
+				E9CED9DE1FE60316000C63D3 /* ActionsListBackgroundViewBuilder.swift in Sources */,
+				E9CED9DF1FE60316000C63D3 /* DimmedActionsListBackgroundView.swift in Sources */,
+				E9CED9E01FE60316000C63D3 /* ActionsListDefaultButtonModel.swift in Sources */,
+				E9CED9E11FE60316000C63D3 /* ActionsListScrollView.swift in Sources */,
+				E9CED9E21FE60316000C63D3 /* ActionsListDefaultButton.swift in Sources */,
+				E9CED9E31FE60316000C63D3 /* ActionsListButton.swift in Sources */,
+				E9CED9E41FE60316000C63D3 /* ActionsList.swift in Sources */,
+				E9CED9E51FE60316000C63D3 /* ActionsListContainer.swift in Sources */,
+				E9CED9E61FE60316000C63D3 /* ActionsListControl.swift in Sources */,
+				E9CED9E71FE60316000C63D3 /* ActionsListStackViewBuilder.swift in Sources */,
+				E9CED9E81FE60316000C63D3 /* ActionsListSeparator.swift in Sources */,
+				E9CED9E91FE60316000C63D3 /* ActionsListSeparatorBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -392,6 +652,11 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* ActionsListExample */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		E9CED97B1FE6028D000C63D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9CED9741FE6028D000C63D3 /* ActionsList */;
+			targetProxy = E9CED97A1FE6028D000C63D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,7 +777,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9629E1CA1EB420C4021A438 /* Pods-ActionsList_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E8RRW68D5D;
 				INFOPLIST_FILE = ActionsList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -530,7 +797,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 675F53C59647FC98E3481952 /* Pods-ActionsList_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E8RRW68D5D;
 				INFOPLIST_FILE = ActionsList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -584,6 +853,70 @@
 			};
 			name = Release;
 		};
+		E9CED97F1FE6028D000C63D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E8RRW68D5D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ActionsList/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsList;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E9CED9801FE6028D000C63D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = E8RRW68D5D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ActionsList/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsList;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,6 +943,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9CED97E1FE6028D000C63D3 /* Build configuration list for PBXNativeTarget "ActionsList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9CED97F1FE6028D000C63D3 /* Debug */,
+				E9CED9801FE6028D000C63D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
