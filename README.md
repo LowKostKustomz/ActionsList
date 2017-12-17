@@ -129,11 +129,11 @@ private func method() {
 > > - do not add more than 4 actions to the list;
 > > - do not disable feedback;
 
-#####List
+##### List
 
 To customize list background colors use `ActionsListModel`'s `appearance` property or `ActionsListAppearance.List.common` to set default appearance.
 
-#####Actions
+##### Actions
 
 To customize actions you can use `ActionsListDefaultButtonModel`'s `appearance` property or `ActionsListAppearance.Button.common` to set default appearance.
 
@@ -141,7 +141,7 @@ Action can be disabled, you can control it via the `ActionsListDefaultButtonMode
 
 Actions generate feedback on highlight, to manage this see [**Feedback**](#feedback) section.
 
-#####Background View
+##### Background View
 
 To set custom background view use `ActionsListBackgroundViewBuilder`'s type property.
 > Custom background view should implement `ActionsListBackgroundView` protocol
@@ -152,7 +152,7 @@ ActionsListBackgroundViewBuilder.instance.type = .custom(backgroundView: customB
 
 To change default dimmed view dimming color use `ActionsListAppearance.BackgroundView.common.dimmingColor`
 
-#####Feedback
+##### Feedback
 
 > Taptic engine used on iPhone 6s and iPhone 6s Plus only.
 > 
@@ -175,13 +175,13 @@ Feel free to contact me via:
 * Twitter: 	[@LowKostKustomz](https://twitter.com/LowKostKustomz)
 * Email:	[mierosh@gmail.com](mierosh@gmail.com)
 
-###All projects
+### All projects
 
-#####[ActionsList](https://github.com/LowKostKustomz/ActionsList)
+##### [ActionsList](https://github.com/LowKostKustomz/ActionsList)
 
 [![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)](https://github.com/LowKostKustomz/ActionsList)
 
-#####[StatusAlert](https://github.com/LowKostKustomz/StatusAlert)
+##### [StatusAlert](https://github.com/LowKostKustomz/StatusAlert)
 
 [![StatusAlert](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/StatusAlert/StatusAlertHeader.png)](https://github.com/LowKostKustomz/StatusAlert)
 
