@@ -94,8 +94,8 @@ private func method() {
 	
 	// For your custom view (must be in the view hierarchy)
 	let list = ActionsListModel(senderView: viewThatEmittedListShowing, 
-							    sourceView: copyOfSenderViewToShowAboveBackgroundView, 
-							    delegate: actionsListDelegate)
+	sourceView: copyOfSenderViewToShowAboveBackgroundView, 
+	delegate: actionsListDelegate)
 	
 	// Add actions to list in order to 
 	list.add(action: ActionsListDefaultButtonModel(localizedTitle: "Create Alarm",
@@ -164,26 +164,38 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 ## Apps Using _ActionsList_
 
+[BitxfyAppStoreLink]: https://itunes.apple.com/us/app/bitxfy-bitcoin-wallet/id1326910438?ls=1&mt=8
+
+# [<img src="Assets/BitxfyIcon.png" width="50"> Bitxfy][BitxfyAppstoreLink]
+
+[![BitxfyScreenShot](Assets/BitxfyActionsList.png)][BitxfyAppstoreLink]
+
+------
+
 > Feel free to submit pull request if you are using this framework in your apps.
 
 ## Author
 
 ![Author ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListAuthor.png)
 
-Feel free to contact me via:
-
-* Twitter: 	[@LowKostKustomz](https://twitter.com/LowKostKustomz)
-* Email:	[mierosh@gmail.com](mierosh@gmail.com)
+[<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Twitter.png" width="80">](https://twitter.com/LowKostKustomz)
+[<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Email.png" width="80">](mierosh@gmail.com)
 
 ### All projects
 
-##### [ActionsList](https://github.com/LowKostKustomz/ActionsList)
+[ActionsListLink]: https://github.com/LowKostKustomz/ActionsList
 
-[![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)](https://github.com/LowKostKustomz/ActionsList)
+#### [ActionsList][ActionsListLink]
 
-##### [StatusAlert](https://github.com/LowKostKustomz/StatusAlert)
+[![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)][ActionsListLink]
 
-[![StatusAlert](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/StatusAlert/StatusAlertHeader.png)](https://github.com/LowKostKustomz/StatusAlert)
+------
+
+[StatusAlertLink]: https://github.com/LowKostKustomz/StatusAlert
+
+#### [StatusAlert][StatusAlertLink]
+
+[![StatusAlert](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/StatusAlert/StatusAlertHeader.png)][StatusAlertLink]
 
 ## License
 
