@@ -21,7 +21,7 @@ public enum ActionsListAppearance {
         ///
         /// To change all lists default appearance change this property.
         /// - Note: Do not change to save system look
-        public static let common: List = List()
+        public static var common: List = List()
         
         private static var listBlurStyle: UIBlurEffectStyle {
             if #available(iOS 10.0, *) {
@@ -83,7 +83,7 @@ public enum ActionsListAppearance {
         ///
         /// To change all background views default appearance change this property.
         /// - Note: Do not change to save system look
-        public static let common: BackgroundView = BackgroundView()
+        public static var common: BackgroundView = BackgroundView()
         
         /// Blurred background view blur effect
         /// - Note: Do not change to save system look
@@ -106,7 +106,7 @@ public enum ActionsListAppearance {
         ///
         /// To change all buttons default appearance change this property.
         /// - Note: Do not change to save system look
-        public static let common: Button = Button()
+        public static var common: Button = Button()
         
         /// Background color applied to highlighted button
         /// - Note: Do not change to save system look
