@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = nil
-        createGradientLayer()
+        createBackground()
         createNavigationItems()
         
         // Clocks button
@@ -34,17 +34,17 @@ class ViewController: UIViewController {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
         button.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
     }
-    var gradientLayer: CAGradientLayer!
     
-    private func createGradientLayer() {
-        gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.red.cgColor,
-                                UIColor.orange.cgColor,
-                                UIColor.blue.cgColor,
-                                UIColor.magenta.cgColor,
-                                UIColor.yellow.cgColor]
-        view.layer.addSublayer(gradientLayer)
+    private func createBackground() {
+        let imageView = UIImageView(image: UIImage(named: "Wallpaper"))
+        imageView.contentMode = .scaleAspectFill
+        
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        imageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     private func createNavigationItems() {
