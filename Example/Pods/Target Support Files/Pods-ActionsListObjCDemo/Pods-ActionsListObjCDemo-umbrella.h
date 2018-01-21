@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ActionsList_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ActionsList_ExampleVersionString[];
+FOUNDATION_EXPORT double Pods_ActionsListObjCDemoVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ActionsListObjCDemoVersionString[];
 

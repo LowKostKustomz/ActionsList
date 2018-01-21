@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ActionsList_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ActionsList_TestsVersionString[];
+FOUNDATION_EXPORT double Pods_ActionsListSwiftDemoVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ActionsListSwiftDemoVersionString[];
 
