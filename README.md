@@ -12,11 +12,22 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 ![ScreenShot](Assets/ClocksScreenShot.png)
 
-## Requirements
-
-* Xcode 9.0 or later
-* iOS 9.0 or later
-* Swift 4.0
+ - [Features](#features)
+ - [Requirements](#requirements)
+ - [Known Issues and Important Things](#known-issues-and-important-things)
+ - [Installation](#installation)
+	- [CocoaPods](#cocoapods)
+	- [Carthage](#carthage)
+ - [Demo](#demo)
+ - [Usage](#usage)
+ - [Customization](#customization)
+ 	- [List](#list)
+ 	- [Actions](#actions)
+ 	- [Background View](#background-view)
+ 	- [Feedback](#feedback)
+ - [Apps Using _ActionsList_](#apps-using-actionslist)
+ - [Author](#author)
+ - [License](#license)
 
 ## Features
 
@@ -35,7 +46,14 @@ It is the best replace for the Android's floating action button in iOS if your a
 >	- no actions count limits (contained in scroll view);
 >	- list background color, action's appearance and background view can be changed;
 
-## Known Issues
+
+## Requirements
+
+* Xcode 9.0 or later
+* iOS 9.0 or later
+* Swift 4.0
+
+## Known Issues and Important things
 
 * List created with `UITabBarItem` extension method does not support orientation changes:
 
@@ -94,8 +112,8 @@ private func method() {
 	
 	// For your custom view (must be in the view hierarchy)
 	let list = ActionsListModel(senderView: viewThatEmittedListShowing, 
-	sourceView: copyOfSenderViewToShowAboveBackgroundView, 
-	delegate: actionsListDelegate)
+				    sourceView: copyOfSenderViewToShowAboveBackgroundView, 
+				    delegate: actionsListDelegate)
 	
 	// Add actions to list in order to 
 	list.add(action: ActionsListDefaultButtonModel(localizedTitle: "Create Alarm",
@@ -123,17 +141,14 @@ private func method() {
 ## Customization
 
 > **IMPORTANT**
-> > To save system look and feel:
-> > 
-> > - do not change any of the appearance properties or another settings;
-> > - do not add more than 4 actions to the list;
-> > - do not disable feedback;
+> 
+> Default list appearance looks and feels similar to the system menu.
 
-##### List
+### List
 
 To customize list background colors use `ActionsListModel`'s `appearance` property or `ActionsListAppearance.List.common` to set default appearance.
 
-##### Actions
+### Actions
 
 To customize actions you can use `ActionsListDefaultButtonModel`'s `appearance` property or `ActionsListAppearance.Button.common` to set default appearance.
 
@@ -141,7 +156,7 @@ Action can be disabled, you can control it via the `ActionsListDefaultButtonMode
 
 Actions generate feedback on highlight, to manage this see [**Feedback**](#feedback) section.
 
-##### Background View
+### Background View
 
 To set custom background view use `ActionsListBackgroundViewBuilder`'s type property.
 > Custom background view should implement `ActionsListBackgroundView` protocol
@@ -152,11 +167,11 @@ ActionsListBackgroundViewBuilder.instance.type = .custom(backgroundView: customB
 
 To change default dimmed view dimming color use `ActionsListAppearance.BackgroundView.common.dimmingColor`
 
-##### Feedback
+### Feedback
 
-> Taptic engine used on iPhone 6s and iPhone 6s Plus only.
+> Taptic engine is used on iPhone 6s and iPhone 6s Plus only.
 > 
-> Haptic feedback used on iPhone 7, iPhone 7 Plus and later.
+> Haptic feedback is used on iPhone 7, iPhone 7 Plus and later.
 > 
 > Other devices do not produce feedback.
 
@@ -166,37 +181,44 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 [BitxfyAppStoreLink]: https://itunes.apple.com/us/app/bitxfy-bitcoin-wallet/id1326910438?ls=1&mt=8
 
-# [<img src="Assets/BitxfyIcon.png" width="50"> Bitxfy][BitxfyAppstoreLink]
+<!--<img src="Assets/BitxfyIcon.png" align="center" width="20">-->
+
+### • <img src="Assets/BitxfyIcon.png" align="center" width="40"> [Bitxfy][BitxfyAppstoreLink]
 
 [![BitxfyScreenShot](Assets/BitxfyActionsList.png)][BitxfyAppstoreLink]
-
-------
 
 > Feel free to submit pull request if you are using this framework in your apps.
 
 ## Author
 
-![Author ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListAuthor.png)
+[FrameworksRepo]: https://github.com/LowKostKustomz/Frameworks
+
+[![Author ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListAuthor.png)][FrameworksRepo]
 
 [<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Twitter.png" width="80">](https://twitter.com/LowKostKustomz)
 [<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Email.png" width="80">](mierosh@gmail.com)
-
-### All projects
-
-[ActionsListLink]: https://github.com/LowKostKustomz/ActionsList
-
-#### [ActionsList][ActionsListLink]
-
-[![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)][ActionsListLink]
-
-------
-
-[StatusAlertLink]: https://github.com/LowKostKustomz/StatusAlert
-
-#### [StatusAlert][StatusAlertLink]
-
-[![StatusAlert](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/StatusAlert/StatusAlertHeader.png)][StatusAlertLink]
+[<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Portfolio.png" width="80">][FrameworksRepo]
 
 ## License
 
-> StatusAlert is available under the MIT license. See the [LICENSE](https://github.com/LowKostKustomz/ActionsList/blob/master/LICENSE) file for more info.
+> The MIT License (MIT)
+>
+> Copyright (c) 2017-2018 LowKostKustomz <mierosh@gmail.com>
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of this software and associated documentation files (the "Software"), to deal
+> in the Software without restriction, including without limitation the rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software, and to permit persons to whom the Software is
+> furnished to do so, subject to the following conditions:
+> 
+> The above copyright notice and this permission notice shall be included in
+> all copies or substantial portions of the Software.
+> 
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+> THE SOFTWARE.
