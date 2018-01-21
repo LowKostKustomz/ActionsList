@@ -12,7 +12,7 @@ final class ActionsListControl: UIControl {
     
     // MARK: - Private fields
     
-    private var stackView: UIStackView!
+    fileprivate var stackView: UIStackView!
     private var components: [UIView] = []
     
     // MARK: - Instantiate methods

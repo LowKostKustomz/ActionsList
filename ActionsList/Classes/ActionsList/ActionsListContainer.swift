@@ -259,15 +259,15 @@ final class ActionsListContainer: UIView {
         switch side {
         case .left:
             let optionalConstraint = listContainerBlurView.leadingAnchor.constraint(equalTo: source.leadingAnchor)
-            optionalConstraint.priority = UILayoutPriority.defaultLow
+            optionalConstraint.priority = UILayoutPriorityDefaultLow
             optionalConstraint.isActive = true
         case .right:
             let optionalConstraint = listContainerBlurView.trailingAnchor.constraint(equalTo: source.trailingAnchor)
-            optionalConstraint.priority = UILayoutPriority.defaultLow
+            optionalConstraint.priority = UILayoutPriorityDefaultLow
             optionalConstraint.isActive = true
         case .center:
             let optionalConstraint = listContainerBlurView.centerXAnchor.constraint(equalTo: source.centerXAnchor)
-            optionalConstraint.priority = UILayoutPriority.defaultLow
+            optionalConstraint.priority = UILayoutPriorityDefaultLow
             optionalConstraint.isActive = true
         }
         
@@ -331,3 +331,9 @@ final class ActionsListContainer: UIView {
             .isActive = true
     }
 }
+
+// Compatibility
+
+#if swift(>=4.0)
+    private let UILayoutPriorityDefaultLow = UILayoutPriority.defaultLow
+#endif

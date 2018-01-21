@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -64).isActive = true
         
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
-        button.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
+        button.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
     }
     
     private func createBackground() {
@@ -116,7 +116,7 @@ class ViewController: UIViewController {
                                                             print("Test")
                                                         }
         })
-        action2.appearance.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        action2.appearance.font = UIFont.systemFont(ofSize: 10, weight: UIFontWeightBold)
         action2.appearance.highlightedBackgroundColor = UIColor.red
         action2.appearance.highlightedTint = UIColor.yellow
         action2.appearance.tint = UIColor.blue
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     
     @objc private func presentFromNavigation(barButton: UIBarButtonItem) {
         let list = barButton.createActionsList(withColor: UIColor.red,
-                                               font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.regular))
+                                               font: UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular))
         
         list?.add(action: ActionsListDefaultButtonModel(localizedTitle: "Test\nTest",
                                                         image: UIImage(named: "Dot"),
@@ -151,3 +151,9 @@ class ViewController: UIViewController {
         self.list = list
     }
 }
+
+#if swift(>=4.0)
+    private let UIFontWeightRegular = UIFont.Weight.regular
+    private let UIFontWeightBold = UIFont.Weight.bold
+    private let UILayoutPriorityRequired = UILayoutPriority.required
+#endif

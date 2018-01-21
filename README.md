@@ -1,6 +1,6 @@
 ![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)
 
-[![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)]()
+[![Swift](https://img.shields.io/badge/Swift-3.0+-orange.svg?style=flat)]()
 [![Version](https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
@@ -51,7 +51,7 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 * Xcode 9.0 or later
 * iOS 9.0 or later
-* Swift 4.0
+* Swift 3.2 and later
 
 ## Known Issues and Important things
 
