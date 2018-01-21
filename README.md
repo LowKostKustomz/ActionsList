@@ -1,16 +1,21 @@
 ![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)
 
-[![Swift](https://img.shields.io/badge/Swift-3.0+-orange.svg?style=flat)]()
-[![Version](https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
-[![Platform](https://img.shields.io/cocoapods/p/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
+<p align="center">
+<a href=""><img alt="Swift" src="https://img.shields.io/badge/Swift-3.2+-orange.svg?style=flat" /></a>
+<a href="http://cocoapods.org/pods/ActionsList"><img alt="Platform" src="https://img.shields.io/cocoapods/p/ActionsList.svg?style=flat&label=Platform" /></a>
+<a href="https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/ActionsList.svg?style=flat&label=License" /></a>
+<br /><br />Dependency managers<br />
+<a href="http://cocoapods.org/pods/ActionsList"><img alt="Cocoapods" src="https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat&label=Cocoapods" /></a>
+<a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" /></a>
+<a href="https://swiftpkgs.ng.bluemix.net/package/LowKostKustomz/ActionsList"><img alt="SwiftPackageManager" src="https://img.shields.io/badge/Swift_Package_Manager-compatible-orange.svg?style=flat" /></a>
+<br />
+</p>
 
 ActionsList is an iOS framework for presenting actions lists similar to Apple's Quick Actions menu. It presents and dismisses list with actions with animation from the source view.
 
 It is the best replace for the Android's floating action button in iOS if your app is following the iOS Design Guidelines.
 
-![ScreenShot](Assets/ClocksScreenShot.png)
+![ScreenShot](https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/ClocksScreenShot.png)
 
  - [Features](#features)
  - [Requirements](#requirements)
@@ -18,6 +23,8 @@ It is the best replace for the Android's floating action button in iOS if your a
  - [Installation](#installation)
 	- [CocoaPods](#cocoapods)
 	- [Carthage](#carthage)
+	- [Swift Package Manager](#swift-package-manager)
+	- [Manual installation](#manual-installation)
  - [Demo](#demo)
  - [Usage](#usage)
  - [Customization](#customization)
@@ -51,7 +58,7 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 * Xcode 9.0 or later
 * iOS 9.0 or later
-* Swift 3.2 and later
+* Swift 3.2 or later
 
 ## Known Issues and Important things
 
@@ -65,11 +72,9 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 ## Installation
 
-StatusAlert is available via CocoaPods and Carthage.
-
 ### CocoaPods
 
-To install StatusAlert using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile`:
+To install ActionsList using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile`:
 
 ```ruby
 pod 'ActionsList', '~> 0.9.1'
@@ -77,17 +82,33 @@ pod 'ActionsList', '~> 0.9.1'
 
 ### Carthage
 
-To install StatusAlert using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
+To install ActionsList using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
 ```ruby
 github "LowKostKustomz/ActionsList" ~> 0.9.1
 ```
 
+### Swift Package Manager
+
+To install StatusAlert using [Swift Package Manager](https://github.com/apple/swift-package-manager) add this to your dependencies in a `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/LowKostKustomz/ActionsList.git", .exact("0.9.1"))
+]
+```
+
+### Manual installation
+
+You can also add this project:
+ * as git submodule;
+ * simply download and copy source files to your project.
+
 ## Demo
 
 Demo application is included in the `ActionsList` workspace. To run it clone the repo.
 
-![Demo Screenshot](Assets/DemoScreenshot.png)
+![Demo Screenshot](https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/DemoScreenshot.png)
 
 ## Usage
 
@@ -116,18 +137,19 @@ private func method() {
 				    delegate: actionsListDelegate)
 	
 	// Add actions to list in order to 
-	list.add(action: ActionsListDefaultButtonModel(localizedTitle: "Create Alarm",
-	                                               image: UIImage(named: "Alarm clock"),
-	                                               action: { action in
-		                                                // You can use action's list property to control it
+	list.add(action: ActionsListDefaultButtonModel(
+	    localizedTitle: "Create Alarm",
+	    image: UIImage(named: "Alarm clock"),
+	    action: { action in
+		// You can use action's list property to control it
 		                                               
-		                                                // - To dismiss
-		                                                action.list?.dismiss()
+		// - To dismiss
+		action.list?.dismiss()
 		                                                
-		                                                // - To update action appearance
-		                                                action.appearance.//anything
-		                                                //     Do not forget to reload actions to apply changes
-		                                                action.list?.reloadActions()
+		// - To update action appearance
+		action.appearance.//anything
+		// Do not forget to reload actions to apply changes
+		action.list?.reloadActions()
 	}))
 	
 	// Present list
@@ -181,11 +203,9 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 [BitxfyAppStoreLink]: https://itunes.apple.com/us/app/bitxfy-bitcoin-wallet/id1326910438?ls=1&mt=8
 
-<!--<img src="Assets/BitxfyIcon.png" align="center" width="20">-->
+### • <img src="https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/BitxfyIcon.png" align="center" width="40"> [Bitxfy][BitxfyAppstoreLink]
 
-### • <img src="Assets/BitxfyIcon.png" align="center" width="40"> [Bitxfy][BitxfyAppstoreLink]
-
-[![BitxfyScreenShot](Assets/BitxfyActionsList.png)][BitxfyAppstoreLink]
+[![BitxfyScreenShot](https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/BitxfyActionsList.png)][BitxfyAppstoreLink]
 
 > Feel free to submit pull request if you are using this framework in your apps.
 
