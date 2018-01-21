@@ -20,8 +20,8 @@ final class ActionsListDefaultButton: UIControl {
     
     // MARK: - Hit area
     
-    private lazy var hitArea: CGRect = {
-        return bounds
+    fileprivate lazy var hitArea: CGRect = { [weak self] in
+        return self?.bounds ?? CGRect.zero
     }()
     
     override var bounds: CGRect {
@@ -32,21 +32,21 @@ final class ActionsListDefaultButton: UIControl {
     
     // MARK: - Private fields
     
-    private let topMargin: CGFloat = 5
-    private let bottomMargin: CGFloat = 7
-    private let sideSpace: CGFloat = 13
-    private let minimumLabelHeight: CGFloat = 50
+    fileprivate let topMargin: CGFloat = 5
+    fileprivate let bottomMargin: CGFloat = 7
+    fileprivate let sideSpace: CGFloat = 13
+    fileprivate let minimumLabelHeight: CGFloat = 50
     
-    private var stackView: UIStackView!
-    private var side: Side = .right
+    fileprivate var stackView: UIStackView!
+    fileprivate var side: Side = .right
     
-    private var titleLabel: UILabel!
-    private var imageView: UIImageView?
-    private var onAction: (() -> ())?
+    fileprivate var titleLabel: UILabel!
+    fileprivate var imageView: UIImageView?
+    fileprivate var onAction: (() -> ())?
     
     // MARK: - Appearance
     
-    private var appearance = ActionsListAppearance.Button.common
+    fileprivate var appearance = ActionsListAppearance.Button.common
     
     // MARK: - Instantiate method
     
@@ -104,13 +104,13 @@ extension ActionsListDefaultButton {
     
     // MARK: - Components creation methods
     
-    private func createLabel() -> UILabel {
+    fileprivate func createLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .left
         
-        label.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
-        label.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
+        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
         label
             .heightAnchor
             .constraint(greaterThanOrEqualToConstant: minimumLabelHeight)
@@ -119,30 +119,30 @@ extension ActionsListDefaultButton {
         return label
     }
     
-    private func set(localizedTitle: String) {
+    fileprivate func set(localizedTitle: String) {
         titleLabel.attributedText = NSAttributedString(string: localizedTitle,
                                                        attributes: getTitleAttributes())
     }
     
-    private func getTitleAttributes() -> [NSAttributedStringKey: Any] {
+    fileprivate func getTitleAttributes() -> [NSAttributedStringKey: Any] {
         var attributes: [NSAttributedStringKey: Any] = [:]
         
         if isEnabled {
             if isHighlighted {
-                attributes[NSAttributedStringKey.foregroundColor] = appearance.highlightedTint
+                attributes[NSForegroundColorAttributeName] = appearance.highlightedTint
             } else {
-                attributes[NSAttributedStringKey.foregroundColor] = appearance.tint
+                attributes[NSForegroundColorAttributeName] = appearance.tint
             }
         } else {
-            attributes[NSAttributedStringKey.foregroundColor] = appearance.disabledTint
+            attributes[NSForegroundColorAttributeName] = appearance.disabledTint
         }
-        attributes[NSAttributedStringKey.font] = appearance.font
-        attributes[NSAttributedStringKey.kern] = 0.5
+        attributes[NSFontAttributeName] = appearance.font
+        attributes[NSKernAttributeName] = 0.5
         
         return attributes
     }
     
-    private func createImageView() -> UIImageView? {
+    fileprivate func createImageView() -> UIImageView? {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         
@@ -156,15 +156,15 @@ extension ActionsListDefaultButton {
             .constraint(equalTo: imageView.widthAnchor)
             .isActive = true
         
-        imageView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
-        imageView.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
-        imageView.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
-        imageView.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+        imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        imageView.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
         
         return imageView
     }
     
-    private func set(image: UIImage?) {
+    fileprivate func set(image: UIImage?) {
         guard let image = image
             else {
                 imageView = nil
@@ -186,7 +186,7 @@ extension ActionsListDefaultButton {
         }
     }
     
-    private func createStackView() {
+    fileprivate func createStackView() {
         stackView = UIStackView()
         addSubview(stackView)
         
@@ -235,7 +235,7 @@ extension ActionsListDefaultButton {
         }
     }
     
-    private func updateAppearance() {
+    fileprivate func updateAppearance() {
         if isHighlighted && isEnabled {
             backgroundColor = appearance.highlightedBackgroundColor
         } else {
@@ -351,3 +351,14 @@ extension ActionsListDefaultButton {
         isHighlighted = false
     }
 }
+
+// Compatibility
+
+#if swift(>=4.0)
+    private let UILayoutPriorityRequired = UILayoutPriority.required
+    private let NSForegroundColorAttributeName = NSAttributedStringKey.foregroundColor
+    private let NSFontAttributeName = NSAttributedStringKey.font
+    private let NSKernAttributeName = NSAttributedStringKey.kern
+#else
+    fileprivate typealias NSAttributedStringKey = String
+#endif

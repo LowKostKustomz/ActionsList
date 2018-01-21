@@ -57,9 +57,15 @@ final class ActionsListScrollView: UIScrollView {
             .isActive = true
         
         let optionalConstraint = heightAnchor.constraint(equalTo: control.heightAnchor)
-        optionalConstraint.priority = UILayoutPriority.defaultHigh
+        optionalConstraint.priority = UILayoutPriorityDefaultHigh
         optionalConstraint.isActive = true
         
         setContentOffset(CGPoint.zero, animated: false)
     }
 }
+
+// Compatibility
+
+#if swift(>=4.0)
+    private let UILayoutPriorityDefaultHigh = UILayoutPriority.defaultHigh
+#endif

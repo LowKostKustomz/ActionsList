@@ -130,6 +130,12 @@ public enum ActionsListAppearance {
         
         /// Font applied for button's text
         /// - Note: Do not change to save system look
-        public var font: UIFont = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.regular)
+        public var font: UIFont = UIFont.systemFont(ofSize: 19, weight: UIFontWeightRegular)
     }
 }
+
+// Compatibility
+
+#if swift(>=4.0)
+    private let UIFontWeightRegular = UIFont.Weight.regular
+#endif
