@@ -9,13 +9,17 @@ extension UIDevice {
     
     /// If the device has only taptic engine
     var hasOnlyTapticEngine: Bool {
-        return platform == .iPhone6S
-            || platform == .iPhone6SPlus
+        switch platform {
+        case .iPhone(let model):
+            return model == .iPhone6S || model == .iPhone6SPlus
+        default:
+            return false
+        }
     }
     
     /// If device has haptic feedback
     var hasHapticFeedback: Bool {
-        return platform.isNewerThan(.iPhone6S)
-            || platform.isNewerThan(.iPhone6SPlus)
+        return platform.isNewerThan(UIDevice.DevicePlatform.iPhoneModel.iPhone6S)
+            || platform.isNewerThan(UIDevice.DevicePlatform.iPhoneModel.iPhone6SPlus)
     }
 }

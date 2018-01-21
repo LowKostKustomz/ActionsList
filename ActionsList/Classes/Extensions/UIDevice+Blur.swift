@@ -7,7 +7,11 @@ import UIKit
 
 extension UIDevice {
     
-    /// If the device is able to display blur
+    /// If the device is able to display blur:
+    ///
+    /// - if operation system supports blur;
+    /// - if "Reduce transparency" mode is disabled;
+    /// - if device supports blur.
     var isBlurAvailable: Bool {
         guard operationSystemSupportsBlur,
             !reduceTransparencyEnabled,
@@ -32,8 +36,8 @@ extension UIDevice {
     }
     
     private var deviceSupportsBlur: Bool {
-        return platform.isNewerThan(.iPad3)
-            && platform.isNewerThan(.iPodTouch4)
-            && platform.isNewerThan(.iPhone4)
+        return platform.isNewerThan(UIDevice.DevicePlatform.iPadModel.iPad3)
+            || platform.isNewerThan(UIDevice.DevicePlatform.iPodTouchModel.iPodTouch4)
+            || platform.isNewerThan(UIDevice.DevicePlatform.iPhoneModel.iPhone4)
     }
 }
