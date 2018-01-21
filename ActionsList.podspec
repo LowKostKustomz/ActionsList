@@ -7,11 +7,12 @@ ActionsList is an iOS framework for presenting actions lists similar to Apple's 
                        DESC
 
   s.homepage         = 'https://github.com/LowKostKustomz/ActionsList'
+  s.screenshots      = 'https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/DemoScreenshot.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LowKostKustomz' => 'mierosh@gmail.com' }
   s.source           = { :git => 'https://github.com/LowKostKustomz/ActionsList.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/LowKostKustomz'
   s.ios.deployment_target = '9.0'
-  s.source_files = 'ActionsList/Classes/**/*.{swift}'
-  s.frameworks = 'UIKit'
+  s.source_files     = 'ActionsList/Classes/**/*.{swift}'
+  s.frameworks       = 'UIKit'
 end
