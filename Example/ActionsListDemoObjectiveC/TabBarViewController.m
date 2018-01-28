@@ -10,7 +10,7 @@
 
 @property (nonatomic, strong, nullable) NSString* title;
 @property (nonatomic, strong, nullable) UIImage* image;
-@property (nonatomic, copy, nullable) void (^action)(void);
+@property (nonatomic, copy, nullable) void (^action)(TabBarItemModel*);
 @property (nonatomic, strong, nullable) UIViewController* controller;
 @property (nonatomic, strong, nullable) UIViewController* cachedViewController;
 
@@ -33,6 +33,12 @@
     
     NSMutableArray<TabBarItemModel*>* items;
     BOOL shouldReset;
+    ActionsListModel* list;
+}
+
+- (instancetype)instantiate {
+    TabBarViewController* controller = [[TabBarViewController alloc] init];
+    return controller;
 }
 
 - (void)viewDidLoad {
@@ -58,36 +64,79 @@
     mainTabItem.image = [UIImage imageNamed:@"Home icon"];
     mainTabItem.controller = [[ViewController alloc] init];
     
+    __weak TabBarViewController* weakSelf = self;
+    
     menuTabItem1 = [[TabBarItemModel alloc] init];
     menuTabItem1.image = [UIImage imageNamed:@"List icon"];
-    menuTabItem1.action = ^{
-        // TODO: - action
+    menuTabItem1.action = ^(TabBarItemModel* model) {
+        [weakSelf showMenuForModel:model];
     };
     
     menuTabItem2 = [[TabBarItemModel alloc] init];
     menuTabItem2.title = @"Big Menu";
     menuTabItem2.image = [UIImage imageNamed:@"List icon"];
-    menuTabItem2.action = ^{
-        // TODO: - action
+    menuTabItem2.action = ^(TabBarItemModel* model) {
+        [weakSelf showMenuForModel:model];
     };
     
     menuTabItem3 = [[TabBarItemModel alloc] init];
     menuTabItem3.title = @"Bigger Menu";
-    menuTabItem3.action = ^{
-        // TODO: - action
+    menuTabItem3.action = ^(TabBarItemModel* model) {
+        [weakSelf showMenuForModel:model];
     };
     
     menuTabItem4 = [[TabBarItemModel alloc] init];
     menuTabItem4.title = @"Biggest Menu";
     menuTabItem4.image = [UIImage imageNamed:@"List icon"];
-    menuTabItem4.action = ^{
-        // TODO: - action
+    menuTabItem4.action = ^(TabBarItemModel* model) {
+        [weakSelf showMenuForModel:model];
     };
 }
 
-- (instancetype)instantiate {
-    TabBarViewController* controller = [[TabBarViewController alloc] init];
-    return controller;
+- (void)showMenuForModel:(TabBarItemModel*)model {
+    if (model.controller) {
+        if (model.controller.tabBarItem) {
+            [self showMenuForItem:model.controller.tabBarItem model:model];
+        }
+    }
+}
+
+- (void)showMenuForItem:(UITabBarItem*)item model:(TabBarItemModel*)model {
+    ActionsListModel* internalList = [item createActionsListWithDelegate:self];
+    
+    NSString* title = model.title;
+    
+    if ([title isEqualToString:@"Big Menu"]) {
+        [self addActions:4 toList:internalList];
+    } else if ([title isEqualToString:@"Bigger Menu"]) {
+        [self addActions:8 toList:internalList];
+    } else if ([title isEqualToString:@"Biggest Menu"]) {
+        [self addActions:16 toList:internalList];
+    } else {
+        [self addActions:2 toList:internalList];
+    }
+    
+    [internalList presentWithCompletion:NULL];
+    list = internalList;
+}
+
+- (void)addActions:(NSInteger)count toList:(ActionsListModel*)list {
+    for (NSInteger i = 1; i <= count; i++) {
+        NSMutableString* title = [@"" mutableCopy];
+        
+        for (NSInteger j = 0; j < i; j++) {
+            [title appendString:[NSString stringWithFormat:@"Action number %ld", (long)i]];
+            
+            if (j != i - 1) {
+                [title appendString:@"\n"];
+            }
+        }
+        
+        [list addAction:[[ActionsListDefaultButtonModel alloc] initWithLocalizedTitle:title
+                                                                                image:[UIImage imageNamed:@"Dot"] action:^(ActionsListDefaultButtonModel* action) {
+                                                                                    [action.list dismissWithCompletion:NULL];
+                                                                                } isEnabled:YES]];
+    }
 }
 
 - (void)resetItems {
@@ -108,6 +157,7 @@
             controller = [[UIViewController alloc] init];
         }
         controller = [[UINavigationController alloc] initWithRootViewController:controller];
+        model.controller = controller;
         
         UITabBarItem* item = [[UITabBarItem alloc] initWithTitle:model.title image:model.image tag:i];
         if (!model.title) {
@@ -123,15 +173,25 @@
     [self setViewControllers:controllers];
 }
 
+- (void)actionsListDidHide {
+    if (@available(iOS 11, *)) {
+        [self.tabBar setTintColor:self.tabBar.unselectedItemTintColor];
+    }
+}
+
+- (void)actionsListWillShow {
+    [self.tabBar setTintColor:self.view.window.tintColor];
+}
+
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     NSUInteger index = [tabBarController.viewControllers indexOfObject:viewController];
     if (index && index < [items count]) {
         TabBarItemModel* item = [items objectAtIndex:index];
-        if (item.controller) {
+        if (item.cachedViewController) {
             [self setSelectedIndex:index];
             return true;
         } else if (item.action) {
-            item.action();
+            item.action(item);
             return false;
         }
     }

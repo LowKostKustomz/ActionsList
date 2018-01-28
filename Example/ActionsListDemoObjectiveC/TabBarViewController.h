@@ -4,8 +4,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@import ActionsList;
 
-@interface TabBarViewController : UITabBarController <UITabBarControllerDelegate>
+@interface TabBarViewController : UITabBarController <UITabBarControllerDelegate, ActionsListDelegate>
 
 - (instancetype)instantiate;
 
