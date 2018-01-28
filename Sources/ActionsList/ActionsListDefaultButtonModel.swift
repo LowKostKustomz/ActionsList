@@ -22,7 +22,7 @@ import UIKit
 /// Button generates feedback on highlight. To disable this see `FeedbackGenerator`.
 ///
 /// For any kind of customizations see `ActionsListAppearance.Button`.
-public final class ActionsListDefaultButtonModel: Hashable, Equatable {
+@objc public final class ActionsListDefaultButtonModel: NSObject {
     
     // MARK: - Equatable
     
@@ -33,7 +33,7 @@ public final class ActionsListDefaultButtonModel: Hashable, Equatable {
     
     // MARK: - Hashable
     
-    public var hashValue: Int {
+    override public var hashValue: Int {
         return localizedTitle.hash ^ (image?.hash ?? 0)
     }
     
@@ -50,15 +50,15 @@ public final class ActionsListDefaultButtonModel: Hashable, Equatable {
     
     /// Containing list
     /// - Note: Never force unwrap this value, because it can cause application crash
-    public weak var list: ActionsListModel?
+    @objc public weak var list: ActionsListModel?
     
     /// A Boolean value indicating wether the button is enabled
     /// - Note: You should call `list?.reloadActions()` to apply changes while showing list
-    public var isEnabled: Bool = true
+    @objc public var isEnabled: Bool = true
     
     /// The button's appearance
     /// - Note: You should call `list?.reloadActions()` to apply changes while showing list
-    public var appearance = ActionsListAppearance.Button.common
+    @objc public let appearance = ActionsListAppearance.Button.copyCommon()
     
     // MARK: - Initializers
     
@@ -68,6 +68,7 @@ public final class ActionsListDefaultButtonModel: Hashable, Equatable {
     ///   - localizedTitle: localized button title
     ///   - image: @1x size should be 35*35. If nil - will not be shown in the button
     ///   - action: action to perform on tap
+    @objc(initWithLocalizedTitle:image:action:isEnabled:)
     public init(localizedTitle: String,
                 image: UIImage?,
                 action: ((ActionsListDefaultButtonModel) -> ())? = nil,

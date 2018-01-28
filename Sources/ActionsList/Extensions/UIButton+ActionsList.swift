@@ -12,7 +12,7 @@ extension UIButton {
     ///
     /// - Parameter delegate: actions list delegate
     /// - Returns: actions list model
-    public func createActionsList(withDelegate delegate: ActionsListDelegate? = nil) -> ActionsListModel {
+    @objc public func createActionsList(withDelegate delegate: ActionsListDelegate? = nil) -> ActionsListModel {
         let localButton = UIButton()
         
         localButton.backgroundColor = UIColor.clear

@@ -18,7 +18,7 @@ extension UIBarButtonItem {
     ///
     /// - Note: Obsoleted in iOS 11
     @available(iOS, obsoleted: 11.0, message: "`UIBarButtonItem` content has not the same frame as overlay button's content. Use `UIButton` and `UIBarButtonItem`'s `init(customView: UIView)` method instead")
-    public func createActionsList(withColor color: UIColor? = UIApplication.shared.keyWindow?.tintColor,
+    @objc public func createActionsList(withColor color: UIColor? = UIApplication.shared.keyWindow?.tintColor,
                                   font: UIFont? = nil,
                                   delegate: ActionsListDelegate? = nil) -> ActionsListModel? {
         guard let itemView = value(forKey: "view") as? UIView

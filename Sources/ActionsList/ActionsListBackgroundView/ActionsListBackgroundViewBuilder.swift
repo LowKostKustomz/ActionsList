@@ -61,8 +61,31 @@ public final class ActionsListBackgroundViewBuilder {
         }
     }
     
-    // MARK: - Public methods
+    @available(*, unavailable)
+    /// Changes background type to dimmed
+    ///
+    /// - Note: Only for Objective-C
+    @objc public func setDimmedBackground() {
+        type = .dimmed
+    }
     
+    @available(*, unavailable)
+    /// Changes background type to blurred
+    ///
+    /// - Note: Only for Objective-C
+    @objc public func setBlurredBackground() {
+        type = .blurred
+    }
+    
+    @available(*, unavailable)
+    /// Changes background type to custom with given `BackgroundView`
+    ///
+    /// - Note: Only for Objective-C
+    @objc public func setCustomBackground(_ background: BackgroundView) {
+        type = .custom(backgroundView: background)
+    }
+    
+    // MARK: - Public methods
     func createBackgroundView() -> BackgroundView {
         switch type {
         case .blurred:

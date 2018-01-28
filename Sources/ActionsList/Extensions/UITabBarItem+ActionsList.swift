@@ -15,7 +15,7 @@ extension UITabBarItem {
     /// - Returns: actions list model
     ///
     /// - Note: Do not use when orientation changes supported.
-    public func createActionsList(withDelegate delegate: ActionsListDelegate? = nil) -> ActionsListModel? {
+    @objc public func createActionsList(withDelegate delegate: ActionsListDelegate? = nil) -> ActionsListModel? {
         guard let view = value(forKey: "view") as? UIView
             else {
                 return nil

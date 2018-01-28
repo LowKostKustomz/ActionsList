@@ -34,12 +34,12 @@ import UIKit
 /// ActionsListModel must be used from the main thread only.
 ///
 /// For any kind of customizations see `ActionsListAppearance.List`.
-public final class ActionsListModel {
+@objc public final class ActionsListModel: NSObject {
     
     private let presenter: ActionsListPresenter
     
     /// The list appearance
-    public var appearance = ActionsListAppearance.List.common
+    @objc public let appearance = ActionsListAppearance.List.copyCommon()
     
     /// Initializes list
     ///
@@ -48,6 +48,7 @@ public final class ActionsListModel {
     ///   - sourceView: list source, copy of the `senderView`, displayed above the `ActionsListBackgroundView`
     ///   - delegate: list delegate
     /// - Note: Must be used from main thread only
+    @objc(initWithSenderView:sourceView:delegate:)
     public init(senderView: UIView,
                 sourceView: UIView,
                 delegate: ActionsListDelegate?) {
@@ -61,6 +62,7 @@ public final class ActionsListModel {
     ///
     /// - Parameter action: action to add
     /// - Note: Adding actions while showing list will have no effect
+    @objc(addAction:)
     public func add(action: ActionsListDefaultButtonModel) {
         action.list = self
         presenter.addAction(action)
@@ -70,6 +72,7 @@ public final class ActionsListModel {
     /// - Note: You should call this method to update actions appearance while showing list
     /// - Note: Must be used from main thread only
     /// - Note: Does not affect list's appearance
+    @objc(reloadActions)
     public func reloadActions() {
         assertIsMainThread()
         presenter.reloadActions()
@@ -79,6 +82,7 @@ public final class ActionsListModel {
     ///
     /// - Parameter completion: called on presentation completion
     /// - Note: Must be used from main thread only
+    @objc(presentWithCompletion:)
     public func present(_ completion: (() -> Void)? = nil) {
         assertIsMainThread()
         
@@ -93,6 +97,7 @@ public final class ActionsListModel {
     ///
     /// - Parameter completion: called on dismissal completion
     /// - Note: Must be used from main thread only
+    @objc(dismissWithCompletion:)
     public func dismiss(_ completion: (() -> Void)? = nil) {
         assertIsMainThread()
         presenter.dismiss(completion)

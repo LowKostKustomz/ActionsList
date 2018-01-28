@@ -26,11 +26,11 @@ protocol FeedbackGeneratorProtocol {
 /// To disable feedback set `isEnabled` property to false.
 ///
 /// Available for iPhone 6s, iPhone 6s Plus and later.
-public struct FeedbackGenerator {
+@objc public final class FeedbackGenerator: NSObject {
     
     // MARK: - Singleton
     
-    private init() {
+    private override init() {
         if UIDevice.current.hasOnlyTapticEngine {
             feedbackGenerator = TapticEngine.instance
         } else if #available(iOS 10.0, *),
@@ -41,7 +41,7 @@ public struct FeedbackGenerator {
         }
     }
     
-    public static let instance: FeedbackGenerator = FeedbackGenerator()
+    @objc public static let instance: FeedbackGenerator = FeedbackGenerator()
     
     // MARK: - Private fields
     
@@ -50,7 +50,7 @@ public struct FeedbackGenerator {
     // MARK: - Public fields
     
     /// If feedback is enabled for the list
-    public var isEnabled: Bool = true {
+    @objc public var isEnabled: Bool = true {
         didSet {
             if oldValue != isEnabled {
                 if !isEnabled {
