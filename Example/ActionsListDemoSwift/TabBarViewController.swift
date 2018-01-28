@@ -39,6 +39,7 @@ class TabBarViewController: UITabBarController {
     
     fileprivate var items: [TabBarItemModel] = []
     private var shouldReset: Bool = true
+    private var list: ActionsListModel?
     
     static func instantiate() -> TabBarViewController {
         let tabBar = TabBarViewController()
@@ -85,8 +86,6 @@ class TabBarViewController: UITabBarController {
                                         self.showMenu(fromModel: model)
                                        }))
     }
-    
-    private var list: ActionsListModel?
     
     private func showMenu(fromModel model: TabBarItemModel) {
         if let controller = model.viewController,

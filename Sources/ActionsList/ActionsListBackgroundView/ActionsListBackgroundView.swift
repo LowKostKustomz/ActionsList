@@ -6,7 +6,7 @@
 import UIKit
 
 /// Implement this protocol to create custom background view for dimming the content under the list.
-public protocol ActionsListBackgroundView {
+@objc public protocol ActionsListBackgroundView {
     
     /// Presents background view with `appearDuration`
     ///
@@ -14,16 +14,16 @@ public protocol ActionsListBackgroundView {
     ///   - appearDuration: appear duration
     ///   - animated: if appear should be animated
     ///   - completion: called on presentation completion
-    func present(withAppearDuration appearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?)
+    @objc func present(withAppearDuration appearDuration: TimeInterval,
+                       animated: Bool,
+                       _ completion: (() -> Void)?)
     
     /// Dismisses background view with `disappearDuration`
     ///
     /// - Parameters:
     ///   - disappearDuration: disappear duration
     ///   - animated: if disappear should be animated
-    func dismiss(withDisappearDuration disappearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?)
+    @objc func dismiss(withDisappearDuration disappearDuration: TimeInterval,
+                       animated: Bool,
+                       _ completion: (() -> Void)?)
 }

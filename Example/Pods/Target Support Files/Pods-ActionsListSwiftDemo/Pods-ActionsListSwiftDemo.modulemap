@@ -1,0 +1,6 @@
+framework module Pods_ActionsListSwiftDemo {
+  umbrella header "Pods-ActionsListSwiftDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

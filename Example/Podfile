@@ -1,11 +1,9 @@
 use_frameworks!
 
-target 'ActionsList_Example' do
+target 'ActionsListSwiftDemo' do
   pod 'ActionsList', :path => '../'
+end
 
-  target 'ActionsList_Tests' do
-    inherit! :search_paths
-
-    
-  end
+target 'ActionsListObjCDemo' do
+    pod 'ActionsList', :path => '../'
 end

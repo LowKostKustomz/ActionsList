@@ -2,6 +2,7 @@
 
 <p align="center">
 <a href=""><img alt="Swift" src="https://img.shields.io/badge/Swift-3.2+-orange.svg?style=flat" /></a>
+<a href=""><img alt="Objective-C" src="https://img.shields.io/badge/Objective--C-supported-blue.svg?style=flat" /></a>
 <a href="http://cocoapods.org/pods/ActionsList"><img alt="Platform" src="https://img.shields.io/cocoapods/p/ActionsList.svg?style=flat&label=Platform" /></a>
 <a href="https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/ActionsList.svg?style=flat&label=License" /></a>
 <br /><br />Dependency managers<br />
@@ -11,10 +12,12 @@
 <br />
 </p>
 
+
+
+
 ActionsList is an iOS framework for presenting actions lists similar to Apple's Quick Actions menu. It presents and dismisses list with actions with animation from the source view.
 
 It is the best replace for the Android's floating action button in iOS if your app is following the iOS Design Guidelines.
-
 ![ScreenShot](https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/ClocksScreenShot.png)
 
  - [Features](#features)
@@ -25,6 +28,7 @@ It is the best replace for the Android's floating action button in iOS if your a
 	- [Carthage](#carthage)
 	- [Swift Package Manager](#swift-package-manager)
 	- [Manual installation](#manual-installation)
+	- [Objective-C integration](#objective-c-integration)
  - [Demo](#demo)
  - [Usage](#usage)
  - [Customization](#customization)
@@ -52,7 +56,6 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 >	- no actions count limits (contained in scroll view);
 >	- list background color, action's appearance and background view can be changed;
-
 
 ## Requirements
 
@@ -103,6 +106,14 @@ dependencies: [
 You can also add this project:
  * as git submodule;
  * simply download and copy source files to your project.
+
+### Objective-C integration
+
+StatusAlert is fully compatible with Objective-C. To import it to your project just add the following line:
+
+```objective-c
+@import ActionsList;
+```
 
 ## Demo
 

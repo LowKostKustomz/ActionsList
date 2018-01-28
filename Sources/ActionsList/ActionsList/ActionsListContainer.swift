@@ -14,7 +14,7 @@ final class ActionsListContainer: UIView {
     private var actions: [ActionsListDefaultButtonModel] = []
     private var source: UIView!
     private var sender: UIView!
-    private var appearance: ActionsListAppearance.List = ActionsListAppearance.List.common
+    private var appearance: ActionsListAppearance.List = ActionsListAppearance.List.copyCommon()
     private var onDismiss: (() -> Void)?
 
     private var statusBarHeight: CGFloat {

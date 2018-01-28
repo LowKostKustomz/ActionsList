@@ -46,7 +46,7 @@ final class ActionsListDefaultButton: UIControl {
     
     // MARK: - Appearance
     
-    fileprivate var appearance = ActionsListAppearance.Button.common
+    fileprivate var appearance = ActionsListAppearance.Button.copyCommon()
     
     // MARK: - Instantiate method
     
