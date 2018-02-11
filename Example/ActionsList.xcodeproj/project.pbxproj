@@ -19,6 +19,8 @@
 		E95D8E7C201506C9003FB2BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		E95D8E8020150B47003FB2BC /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95D8E7E20150AA4003FB2BC /* TabBarViewController.m */; };
 		E95D8EBD20152366003FB2BC /* Pods_ActionsListObjCDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95D8EBE20152366003FB2BC /* Pods_ActionsListObjCDemo.framework */; };
+		E9CA5B09202FCDB700AC766E /* ActionsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; };
+		E9CA5B0A202FCDB700AC766E /* ActionsList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9CED96F1FE5F7D9000C63D3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED96E1FE5F7D9000C63D3 /* TabBarViewController.swift */; };
 		E9CED9D01FE60316000C63D3 /* ActionsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9AF1FE60300000C63D3 /* ActionsListModel.swift */; };
 		E9CED9D11FE60316000C63D3 /* ActionsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B01FE60300000C63D3 /* ActionsListPresenter.swift */; };
@@ -51,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E9CA5B0B202FCDB700AC766E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9CED9741FE6028D000C63D3;
+			remoteInfo = ActionsList;
+		};
 		E9E0F7F02015254800816713 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -61,6 +70,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E9CA5B0D202FCDB700AC766E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9CA5B0A202FCDB700AC766E /* ActionsList.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9E0F7F22015254800816713 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,7 +101,7 @@
 		404935F7159381560FB34B33 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4CB6A691807D36FA21E3B3F5 /* Pods-ActionsListSwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionsListSwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionsListSwiftDemo/Pods-ActionsListSwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		594EFE444C8884BD035A278B /* Pods_ActionsListObjCDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionsListObjCDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD01AFB9204008FA782 /* ActionsListSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionsListSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* ActionsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -94,7 +114,7 @@
 		A7DD4EB5536C15CB587829E4 /* Pods-ActionsList_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionsList_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionsList_Tests/Pods-ActionsList_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C9629E1CA1EB420C4021A438 /* Pods-ActionsList_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionsList_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionsList_Example/Pods-ActionsList_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E6313AD31F9C1DD0E3EE7CF5 /* Pods_ActionsList_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionsList_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E95D8E642015060E003FB2BC /* ActionsListObjCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionsListObjCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95D8E642015060E003FB2BC /* ActionsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95D8E662015060E003FB2BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E95D8E672015060E003FB2BC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E95D8E692015060E003FB2BC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -141,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CA5B09202FCDB700AC766E /* ActionsList.framework in Frameworks */,
 				3701345D1ABC23DC1B00FEBA /* Pods_ActionsListSwiftDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,9 +217,9 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* ActionsListSwiftDemo.app */,
+				607FACD01AFB9204008FA782 /* ActionsList.app */,
 				E9CED9751FE6028D000C63D3 /* ActionsList.framework */,
-				E95D8E642015060E003FB2BC /* ActionsListObjCDemo.app */,
+				E95D8E642015060E003FB2BC /* ActionsList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,14 +386,16 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				DCF08200D2349B61AAC47ECB /* [CP] Embed Pods Frameworks */,
 				AC7A9941EBC63BEA920637CF /* [CP] Copy Pods Resources */,
+				E9CA5B0D202FCDB700AC766E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E9CA5B0C202FCDB700AC766E /* PBXTargetDependency */,
 			);
 			name = ActionsListSwiftDemo;
 			productName = ActionsList;
-			productReference = 607FACD01AFB9204008FA782 /* ActionsListSwiftDemo.app */;
+			productReference = 607FACD01AFB9204008FA782 /* ActionsList.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E95D8E632015060E003FB2BC /* ActionsListObjCDemo */ = {
@@ -394,7 +417,7 @@
 			);
 			name = ActionsListObjCDemo;
 			productName = ActionsListDemoObjectiveC;
-			productReference = E95D8E642015060E003FB2BC /* ActionsListObjCDemo.app */;
+			productReference = E95D8E642015060E003FB2BC /* ActionsList.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E9CED9741FE6028D000C63D3 /* ActionsList */ = {
@@ -650,6 +673,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E9CA5B0C202FCDB700AC766E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9CED9741FE6028D000C63D3 /* ActionsList */;
+			targetProxy = E9CA5B0B202FCDB700AC766E /* PBXContainerItemProxy */;
+		};
 		E9E0F7F12015254800816713 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E9CED9741FE6028D000C63D3 /* ActionsList */;
@@ -774,15 +802,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A17D59A17933C70CE4C3418 /* Pods-ActionsListSwiftDemo.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SwiftAppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E8RRW68D5D;
 				INFOPLIST_FILE = ActionsListDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
+				MODULE_NAME = ExampleAppSwift;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsListDemoSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionsList;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
@@ -794,15 +824,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4CB6A691807D36FA21E3B3F5 /* Pods-ActionsListSwiftDemo.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SwiftAppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E8RRW68D5D;
 				INFOPLIST_FILE = ActionsListDemoSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
+				MODULE_NAME = ExampleAppSwift;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsListDemoSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionsList;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -814,7 +846,7 @@
 			baseConfigurationReference = FF080AEFF616209B6EED8F1B /* Pods-ActionsListObjCDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ObjCAppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -827,8 +859,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ActionsListDemoObjectiveC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleAppObjectiveC;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsListDemoObjectiveC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionsList;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -838,7 +872,7 @@
 			baseConfigurationReference = 65FA3DC574C3601BDDA05C7A /* Pods-ActionsListObjCDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ObjCAppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -850,8 +884,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ActionsListDemoObjectiveC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleAppObjectiveC;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowkostkustomz.ActionsListDemoObjectiveC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionsList;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
