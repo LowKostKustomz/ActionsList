@@ -80,4 +80,9 @@ import UIKit
         self.action = action
         self.isEnabled = isEnabled
     }
+    
+    public func setupAccessibility(accessibilityLabel: String?) {
+        self.isAccessibilityElement = accessibilityLabel != nil
+        self.accessibilityLabel = accessibilityLabel
+    }
 }

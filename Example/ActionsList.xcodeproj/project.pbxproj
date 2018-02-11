@@ -21,6 +21,8 @@
 		E95D8EBD20152366003FB2BC /* Pods_ActionsListObjCDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95D8EBE20152366003FB2BC /* Pods_ActionsListObjCDemo.framework */; };
 		E9CA5B09202FCDB700AC766E /* ActionsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; };
 		E9CA5B0A202FCDB700AC766E /* ActionsList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9CED9751FE6028D000C63D3 /* ActionsList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9CA5B0F2030AFF400AC766E /* NSObject+NotAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA5B0E2030AFF400AC766E /* NSObject+NotAccessible.swift */; };
+		E9CA5B102030B19F00AC766E /* NSObject+NotAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA5B0E2030AFF400AC766E /* NSObject+NotAccessible.swift */; };
 		E9CED96F1FE5F7D9000C63D3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED96E1FE5F7D9000C63D3 /* TabBarViewController.swift */; };
 		E9CED9D01FE60316000C63D3 /* ActionsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9AF1FE60300000C63D3 /* ActionsListModel.swift */; };
 		E9CED9D11FE60316000C63D3 /* ActionsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9B01FE60300000C63D3 /* ActionsListPresenter.swift */; };
@@ -124,6 +126,7 @@
 		E95D8E7D20150AA4003FB2BC /* TabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E95D8E7E20150AA4003FB2BC /* TabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E95D8EBE20152366003FB2BC /* Pods_ActionsListObjCDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ActionsListObjCDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CA5B0E2030AFF400AC766E /* NSObject+NotAccessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+NotAccessible.swift"; sourceTree = "<group>"; };
 		E9CED96E1FE5F7D9000C63D3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E9CED9751FE6028D000C63D3 /* ActionsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CED9781FE6028D000C63D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -297,13 +300,14 @@
 		E9CED9B61FE60300000C63D3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E9CED9B71FE60300000C63D3 /* UIDevice+HasHapticEngine.swift */,
-				E9CED9B81FE60300000C63D3 /* UIButton+ActionsList.swift */,
-				E9CED9B91FE60300000C63D3 /* UITabBarItem+ActionsList.swift */,
-				E9CED9BA1FE60300000C63D3 /* UIDevice+Blur.swift */,
+				E9CA5B0E2030AFF400AC766E /* NSObject+NotAccessible.swift */,
 				E9CED9BB1FE60300000C63D3 /* UIBarButtonItem+ActionsList.swift */,
-				E9CED9BC1FE60300000C63D3 /* UIView+Layout.swift */,
+				E9CED9B81FE60300000C63D3 /* UIButton+ActionsList.swift */,
+				E9CED9BA1FE60300000C63D3 /* UIDevice+Blur.swift */,
+				E9CED9B71FE60300000C63D3 /* UIDevice+HasHapticEngine.swift */,
 				E9CED9BD1FE60300000C63D3 /* UIDevice+Platform.swift */,
+				E9CED9B91FE60300000C63D3 /* UITabBarItem+ActionsList.swift */,
+				E9CED9BC1FE60300000C63D3 /* UIView+Layout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -621,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9CED96F1FE5F7D9000C63D3 /* TabBarViewController.swift in Sources */,
+				E9CA5B0F2030AFF400AC766E /* NSObject+NotAccessible.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -641,6 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CA5B102030B19F00AC766E /* NSObject+NotAccessible.swift in Sources */,
 				E9CED9D01FE60316000C63D3 /* ActionsListModel.swift in Sources */,
 				E9CED9D11FE60316000C63D3 /* ActionsListPresenter.swift in Sources */,
 				E9CED9D21FE60316000C63D3 /* ActionsListAppearance.swift in Sources */,

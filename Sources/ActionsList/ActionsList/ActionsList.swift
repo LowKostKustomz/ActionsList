@@ -12,6 +12,15 @@ final class ActionsList: UIVisualEffectView {
     private(set) var content: ActionsListScrollView!
     private var appearance: ActionsListAppearance.List!
     
+    // MARK: - Public fields
+    
+    override var accessibilityElements: [Any]? {
+        get {
+            return content.accessibilityElements
+        }
+        set { }
+    }
+    
     // MARK: - Instantiate methods
     
     static func instantiate(
@@ -19,10 +28,12 @@ final class ActionsList: UIVisualEffectView {
         appearance: ActionsListAppearance.List) -> ActionsList {
         
         let list = ActionsList()
+        list.makeNotAccessible()
         list.appearance = appearance
         
-        list.setupContent(withComponents: components,
-                          blurEffect: appearance.listBlurEffect)
+        list.setupContent(
+            withComponents: components,
+            blurEffect: appearance.listBlurEffect)
         list.layer.cornerRadius = appearance.listCornerRadius
         list.clipsToBounds = true
         
@@ -38,6 +49,10 @@ final class ActionsList: UIVisualEffectView {
     }
     
     // MARK: - Public methods
+    
+    override func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
+        return content.accessibilityScroll(direction)
+    }
     
     func revertActionsOrder() {
         content.revertActionsOrder()

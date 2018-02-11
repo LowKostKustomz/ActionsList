@@ -12,6 +12,8 @@ struct ActionsListStackViewBuilder {
     static func createStackView(withComponents components: [UIView]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: components)
         
+        stackView.makeNotAccessible()
+
         stackView.spacing = 0
         stackView.axis = .vertical
         stackView.alignment = .fill

@@ -32,6 +32,8 @@ final class ActionsListPresenter: UIView {
         delegate: ActionsListDelegate?) -> ActionsListPresenter {
         
         let actionsListPresenter = ActionsListPresenter()
+        actionsListPresenter.accessibilityViewIsModal = true
+        actionsListPresenter.makeNotAccessible()
         
         actionsListPresenter.delegate = delegate
         actionsListPresenter.presenter = actionsListPresenter.getPresenter(forSource: source)
@@ -55,6 +57,10 @@ final class ActionsListPresenter: UIView {
     
     func reloadActions() {
         actionsListContainer.reloadActions()
+    }
+    
+    func setupDismissAccessibility(hint: String?) {
+        actionsListContainer.setupDismissAccessibility(hint: hint)
     }
     
     func present(
@@ -86,6 +92,12 @@ final class ActionsListPresenter: UIView {
         }
         
         group.notify(queue: DispatchQueue.main) { [weak self] in
+            let elements = self?.actionsListContainer.accessibilityElements
+            var element: Any? = elements?.first
+            if (elements?.count ?? 0) > 1 {
+                element = elements?[1]
+            }
+            UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, element)
             self?.delegate?.actionsListDidShow?()
             completion?()
         }
@@ -110,6 +122,7 @@ final class ActionsListPresenter: UIView {
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.presenter.isUserInteractionEnabled = true
             self?.removeFromSuperview()
+            UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil)
             self?.delegate?.actionsListDidHide?()
             completion?()
         }

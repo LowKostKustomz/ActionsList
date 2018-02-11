@@ -19,6 +19,7 @@ struct ActionsListSeparatorBuilder {
         
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
         let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyView.makeNotAccessible()
         vibrancyView.contentView.addSubview(separator)
         
         separator.constraintToSuperview()

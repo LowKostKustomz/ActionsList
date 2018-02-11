@@ -13,7 +13,25 @@ final class ActionsListControl: UIControl {
     // MARK: - Private fields
     
     fileprivate var stackView: UIStackView!
-    private var components: [UIView] = []
+    private var isReversed: Bool = false
+    
+    // MARK: - Public fields
+    
+    override var accessibilityElements: [Any]? {
+        get {
+            let elements = stackView.arrangedSubviews.filter({ (view) -> Bool in
+                return view.isAccessibilityElement
+            })
+            return isReversed ? elements.reversed() : elements
+        }
+        set { }
+    }
+    
+    var accessibilityActions: [UIView] {
+        return stackView.arrangedSubviews.filter({ (view) -> Bool in
+            return view.isAccessibilityElement
+        })
+    }
     
     // MARK: - Instantiate methods
     
@@ -22,8 +40,9 @@ final class ActionsListControl: UIControl {
         blurEffect: UIBlurEffect) -> ActionsListControl {
         
         let control = ActionsListControl()
-        control.buildComponents(withComponents: components, blurEffect: blurEffect)
-        control.createStackView()
+        control.makeNotAccessible()
+        let components = control.buildComponents(withComponents: components, blurEffect: blurEffect)
+        control.createStackView(withComponents: components)
         return control
     }
     
@@ -35,23 +54,24 @@ final class ActionsListControl: UIControl {
         for subview in arrangedSubviews.reversed() {
             stackView.addArrangedSubview(subview)
         }
+        isReversed = !isReversed
     }
     
     // MARK: - Private methods
     
     private func buildComponents(
         withComponents components: [UIView],
-        blurEffect: UIBlurEffect) {
+        blurEffect: UIBlurEffect) -> [UIView] {
         
         let range = 0..<(2 * components.count - 1)
         let components = range.map { (index: Int) -> UIView in
             let isOdd: Bool = (index % 2 == 0)
             return isOdd ? components[index / 2] : ActionsListSeparatorBuilder.createSeparator(forBlurEffect: blurEffect)
         }
-        self.components = components
+        return components
     }
     
-    private func createStackView() {
+    private func createStackView(withComponents components: [UIView]) {
         stackView = ActionsListStackViewBuilder.createStackView(withComponents: components)
         addSubview(stackView)
         stackView.constraintToSuperview()
