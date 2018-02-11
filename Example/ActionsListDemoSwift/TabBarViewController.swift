@@ -100,6 +100,7 @@ class TabBarViewController: UITabBarController {
             else {
                 return
         }
+        list.setupDismissAccessibility(hint: "Double tap to dismiss")
         
         switch model.type {
         case .custom(let title, _):
@@ -123,12 +124,13 @@ class TabBarViewController: UITabBarController {
                             toList list: ActionsListModel) {
         for i in 1...count {
             let title: String = [String](repeating: "Action number \(i)", count: i).joined(separator: "\n")
-            
-            list.add(action: ActionsListDefaultButtonModel(localizedTitle: title,
-                                                           image: UIImage(named: "Dot"),
-                                                           action: { action in
-                                                            action.list?.dismiss()
-            }))
+            let action = ActionsListDefaultButtonModel(localizedTitle: title,
+                                                       image: UIImage(named: "Dot"),
+                                                       action: { action in
+                                                        action.list?.dismiss()
+            })
+            action.setupAccessibility(accessibilityLabel: "\(i) tests")
+            list.add(action: action)
         }
     }
     
