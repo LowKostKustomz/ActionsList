@@ -69,10 +69,12 @@ import UIKit
     ///   - image: @1x size should be 35*35. If nil - will not be shown in the button
     ///   - action: action to perform on tap
     @objc(initWithLocalizedTitle:image:action:isEnabled:)
-    public init(localizedTitle: String,
-                image: UIImage?,
-                action: ((ActionsListDefaultButtonModel) -> ())? = nil,
-                isEnabled: Bool = true) {
+    public init(
+        localizedTitle: String,
+        image: UIImage?,
+        action: ((ActionsListDefaultButtonModel) -> ())? = nil,
+        isEnabled: Bool = true) {
+        
         self.localizedTitle = localizedTitle
         self.image = image
         self.action = action

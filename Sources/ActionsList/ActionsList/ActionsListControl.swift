@@ -17,8 +17,10 @@ final class ActionsListControl: UIControl {
     
     // MARK: - Instantiate methods
     
-    static func instantiate(withComponents components: [UIView],
-                            blurEffect: UIBlurEffect) -> ActionsListControl {
+    static func instantiate(
+        withComponents components: [UIView],
+        blurEffect: UIBlurEffect) -> ActionsListControl {
+        
         let control = ActionsListControl()
         control.buildComponents(withComponents: components, blurEffect: blurEffect)
         control.createStackView()
@@ -37,8 +39,10 @@ final class ActionsListControl: UIControl {
     
     // MARK: - Private methods
     
-    private func buildComponents(withComponents components: [UIView],
-                                 blurEffect: UIBlurEffect) {
+    private func buildComponents(
+        withComponents components: [UIView],
+        blurEffect: UIBlurEffect) {
+        
         let range = 0..<(2 * components.count - 1)
         let components = range.map { (index: Int) -> UIView in
             let isOdd: Bool = (index % 2 == 0)

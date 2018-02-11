@@ -49,13 +49,16 @@ import UIKit
     ///   - delegate: list delegate
     /// - Note: Must be used from main thread only
     @objc(initWithSenderView:sourceView:delegate:)
-    public init(senderView: UIView,
-                sourceView: UIView,
-                delegate: ActionsListDelegate?) {
+    public init(
+        senderView: UIView,
+        sourceView: UIView,
+        delegate: ActionsListDelegate?) {
+        
         ActionsListModel.assertIsMainThread()
-        presenter = ActionsListPresenter.instantiate(withSource: sourceView,
-                                                     sender: senderView,
-                                                     delegate: delegate)
+        presenter = ActionsListPresenter.instantiate(
+            withSource: sourceView,
+            sender: senderView,
+            delegate: delegate)
     }
     
     /// Adds action to list

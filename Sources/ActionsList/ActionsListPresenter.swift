@@ -26,9 +26,11 @@ final class ActionsListPresenter: UIView {
     
     // MARK: - Instantiate methods
     
-    static func instantiate(withSource source: UIView,
-                            sender: UIView,
-                            delegate: ActionsListDelegate?) -> ActionsListPresenter {
+    static func instantiate(
+        withSource source: UIView,
+        sender: UIView,
+        delegate: ActionsListDelegate?) -> ActionsListPresenter {
+        
         let actionsListPresenter = ActionsListPresenter()
         
         actionsListPresenter.delegate = delegate
@@ -36,12 +38,11 @@ final class ActionsListPresenter: UIView {
         actionsListPresenter.setupBackgroundView()
         actionsListPresenter.setupActionsListContainer(withSource: source, sender: sender)
         
-        NotificationCenter
-            .default
-            .addObserver(actionsListPresenter,
-                         selector: #selector(reduceTransparencyStatusDidChange),
-                         name: .reduceTransparencyStatusDidChange,
-                         object: nil)
+        NotificationCenter.default.addObserver(
+            actionsListPresenter,
+            selector: #selector(reduceTransparencyStatusDidChange),
+            name: .reduceTransparencyStatusDidChange,
+            object: nil)
         
         return actionsListPresenter
     }
@@ -56,8 +57,10 @@ final class ActionsListPresenter: UIView {
         actionsListContainer.reloadActions()
     }
     
-    func present(appearance: ActionsListAppearance.List,
-                 _ completion: (() -> Void)?) {
+    func present(
+        appearance: ActionsListAppearance.List,
+        _ completion: (() -> Void)?) {
+        
         FeedbackGenerator.instance.beginGeneration()
         
         let firstStageRelativeDuration: Double = 0.5
@@ -68,24 +71,21 @@ final class ActionsListPresenter: UIView {
         constraintToSuperview()
         
         group.enter()
-        backgroundView
-            .present(withAppearDuration: appearTime * firstStageRelativeDuration,
-                     animated: true)
-            {
+        backgroundView.present(
+            withAppearDuration: appearTime * firstStageRelativeDuration,
+            animated: true) {
                 group.leave()
         }
         
         group.enter()
-        actionsListContainer
-            .show(withAppearDuration: appearTime,
-                  firstStageRelativeDuration: firstStageRelativeDuration,
-                  appearance: appearance)
-            {
+        actionsListContainer.show(
+            withAppearDuration: appearTime,
+            firstStageRelativeDuration: firstStageRelativeDuration,
+            appearance: appearance) {
                 group.leave()
         }
         
-        group.notify(queue: DispatchQueue.main)
-        { [weak self] in
+        group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.delegate?.actionsListDidShow?()
             completion?()
         }
@@ -98,22 +98,16 @@ final class ActionsListPresenter: UIView {
         let group = DispatchGroup()
         delegate?.actionsListWillHide?()
         group.enter()
-        backgroundView
-            .dismiss(withDisappearDuration: disappearDuration,
-                     animated: true)
-            {
-                group.leave()
+        backgroundView.dismiss(withDisappearDuration: disappearDuration, animated: true) {
+            group.leave()
         }
         
         group.enter()
-        actionsListContainer
-            .hide(withDisappearDuration: disappearDuration)
-            {
-                group.leave()
+        actionsListContainer.hide(withDisappearDuration: disappearDuration) {
+            group.leave()
         }
         
-        group.notify(queue: DispatchQueue.main)
-        { [weak self] in
+        group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.presenter.isUserInteractionEnabled = true
             self?.removeFromSuperview()
             self?.delegate?.actionsListDidHide?()
@@ -155,11 +149,14 @@ final class ActionsListPresenter: UIView {
         backgroundView.isUserInteractionEnabled = false
     }
     
-    private func setupActionsListContainer(withSource source: UIView,
-                                           sender: UIView) {
-        actionsListContainer = ActionsListContainer.instantiate(withSource: source,
-                                                                sender: sender,
-                                                                onDismissGesture: gestureDismiss)
+    private func setupActionsListContainer(
+        withSource source: UIView,
+        sender: UIView) {
+        
+        actionsListContainer = ActionsListContainer.instantiate(
+            withSource: source,
+            sender: sender,
+            onDismissGesture: gestureDismiss)
         addSubview(actionsListContainer)
         actionsListContainer.constraintToSuperview()
         layoutIfNeeded()
@@ -171,8 +168,9 @@ final class ActionsListPresenter: UIView {
     
     @objc private func reduceTransparencyStatusDidChange() {
         setupBackgroundView()
-        backgroundView.present(withAppearDuration: 0,
-                               animated: false,
-                               nil)
+        backgroundView.present(
+            withAppearDuration: 0,
+            animated: false,
+            nil)
     }
 }

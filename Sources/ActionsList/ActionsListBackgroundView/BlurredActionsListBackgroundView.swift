@@ -48,29 +48,35 @@ final class BlurredActionsListBackgroundView: UIVisualEffectView, ActionsListBac
     
     // MARK: - ActionsListBackgroundView
     
-    func present(withAppearDuration appearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?) {
-        UIView.animate(withDuration: (animated ? appearDuration : 0),
-                       animations: {
-                        self.effect = self.blurEffect
-                        self.setVibrancyAlpha(1)
+    func present(
+        withAppearDuration appearDuration: TimeInterval,
+        animated: Bool,
+        _ completion: (() -> Void)?) {
+        
+        UIView.animate(
+            withDuration: (animated ? appearDuration : 0),
+            animations: {
+                self.effect = self.blurEffect
+                self.setVibrancyAlpha(1)
         },
-                       completion: { (finished) in
-                        completion?()
+            completion: { (finished) in
+                completion?()
         })
     }
     
-    func dismiss(withDisappearDuration disappearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?) {
-        UIView.animate(withDuration: (animated ? disappearDuration : 0),
-                       animations: {
-                        self.effect = nil
-                        self.setVibrancyAlpha(0)
+    func dismiss(
+        withDisappearDuration disappearDuration: TimeInterval,
+        animated: Bool,
+        _ completion: (() -> Void)?) {
+        
+        UIView.animate(
+            withDuration: (animated ? disappearDuration : 0),
+            animations: {
+                self.effect = nil
+                self.setVibrancyAlpha(0)
         },
-                       completion: { (finished) in
-                        completion?()
+            completion: { (finished) in
+                completion?()
         })
     }
     

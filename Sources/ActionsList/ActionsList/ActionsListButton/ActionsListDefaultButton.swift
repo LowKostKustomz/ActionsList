@@ -111,17 +111,15 @@ extension ActionsListDefaultButton {
         
         label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
         label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
-        label
-            .heightAnchor
-            .constraint(greaterThanOrEqualToConstant: minimumLabelHeight)
-            .isActive = true
+        label.heightAnchor.constraint(greaterThanOrEqualToConstant: minimumLabelHeight).isActive = true
         
         return label
     }
     
     fileprivate func set(localizedTitle: String) {
-        titleLabel.attributedText = NSAttributedString(string: localizedTitle,
-                                                       attributes: getTitleAttributes())
+        titleLabel.attributedText = NSAttributedString(
+            string: localizedTitle,
+            attributes: getTitleAttributes())
     }
     
     fileprivate func getTitleAttributes() -> [NSAttributedStringKey: Any] {
@@ -147,14 +145,8 @@ extension ActionsListDefaultButton {
         imageView.contentMode = .scaleAspectFill
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView
-            .widthAnchor
-            .constraint(equalToConstant: 35)
-            .isActive = true
-        imageView
-            .heightAnchor
-            .constraint(equalTo: imageView.widthAnchor)
-            .isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         
         imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
@@ -196,22 +188,10 @@ extension ActionsListDefaultButton {
         stackView.spacing = sideSpace
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView
-            .topAnchor
-            .constraint(equalTo: topAnchor, constant: topMargin)
-            .isActive = true
-        stackView
-            .bottomAnchor
-            .constraint(equalTo: bottomAnchor, constant: -bottomMargin)
-            .isActive = true
-        stackView
-            .leadingAnchor
-            .constraint(equalTo: leadingAnchor, constant: sideSpace)
-            .isActive = true
-        stackView
-            .trailingAnchor
-            .constraint(equalTo: trailingAnchor, constant: -sideSpace)
-            .isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: topMargin).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomMargin).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: sideSpace).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -sideSpace).isActive = true
     }
 }
 
@@ -271,8 +251,9 @@ extension ActionsListDefaultButton {
         var optionalSuperview: UIView? = superview
         
         while let superview = optionalSuperview {
-            let convertedBounds = convert(bounds,
-                                          to: superview)
+            let convertedBounds = convert(
+                bounds,
+                to: superview)
             if superview.bounds.intersects(convertedBounds) {
                 optionalSuperview = superview.superview
             } else {

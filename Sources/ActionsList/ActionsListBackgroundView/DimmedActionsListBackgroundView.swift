@@ -22,9 +22,11 @@ final class DimmedActionsListBackgroundView: UIView, ActionsListBackgroundView {
     
     // MARK: - ActionsListBackgroundView
     
-    func present(withAppearDuration appearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?) {
+    func present(
+        withAppearDuration appearDuration: TimeInterval,
+        animated: Bool,
+        _ completion: (() -> Void)?) {
+        
         UIView.animate(withDuration: (animated ? appearDuration : 0),
                        animations: {
                         self.alpha = 1
@@ -34,9 +36,11 @@ final class DimmedActionsListBackgroundView: UIView, ActionsListBackgroundView {
         })
     }
     
-    func dismiss(withDisappearDuration disappearDuration: TimeInterval,
-                 animated: Bool,
-                 _ completion: (() -> Void)?) {
+    func dismiss(
+        withDisappearDuration disappearDuration: TimeInterval,
+        animated: Bool,
+        _ completion: (() -> Void)?) {
+        
         UIView.animate(withDuration: (animated ? disappearDuration : 0),
                        animations: {
                         self.alpha = 0

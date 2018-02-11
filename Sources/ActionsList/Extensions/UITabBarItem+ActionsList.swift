@@ -21,8 +21,8 @@ extension UITabBarItem {
                 return nil
         }
         
-        let imageView = (view.subviews.filter { $0 as? UIImageView != nil }.first as? UIImageView)
-        let label = (view.subviews.filter { $0 as? UILabel != nil }.first as? UILabel)
+        let imageView = view.subviews.map { $0 as? UIImageView }.flatMap { $0 }.first
+        let label = view.subviews.map { $0 as? UILabel }.flatMap { $0 }.first
         
         let localView = UIView()
         localView.backgroundColor = UIColor.clear
@@ -44,8 +44,9 @@ extension UITabBarItem {
             localLabel.frame = label.frame
         }
         
-        return ActionsListModel(senderView: view,
-                                sourceView: localView,
-                                delegate: delegate)
+        return ActionsListModel(
+            senderView: view,
+            sourceView: localView,
+            delegate: delegate)
     }
 }

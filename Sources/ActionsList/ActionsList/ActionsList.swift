@@ -14,8 +14,10 @@ final class ActionsList: UIVisualEffectView {
     
     // MARK: - Instantiate methods
     
-    static func instantiate(withComponents components: [UIView],
-                            appearance: ActionsListAppearance.List) -> ActionsList {
+    static func instantiate(
+        withComponents components: [UIView],
+        appearance: ActionsListAppearance.List) -> ActionsList {
+        
         let list = ActionsList()
         list.appearance = appearance
         
@@ -26,12 +28,11 @@ final class ActionsList: UIVisualEffectView {
         
         list.setupAppearance()
         
-        NotificationCenter
-            .default
-            .addObserver(list,
-                         selector: #selector(reduceTransparencyStatusDidChange),
-                         name: .reduceTransparencyStatusDidChange,
-                         object: nil)
+        NotificationCenter.default.addObserver(
+            list,
+            selector: #selector(reduceTransparencyStatusDidChange),
+            name: .reduceTransparencyStatusDidChange,
+            object: nil)
         
         return list
     }
@@ -58,10 +59,13 @@ final class ActionsList: UIVisualEffectView {
         }
     }
     
-    private func setupContent(withComponents components: [UIView],
-                              blurEffect: UIBlurEffect) {
-        content = ActionsListScrollView.instantiate(withComponents: components,
-                                                    blurEffect: blurEffect)
+    private func setupContent(
+        withComponents components: [UIView],
+        blurEffect: UIBlurEffect) {
+        
+        content = ActionsListScrollView.instantiate(
+            withComponents: components,
+            blurEffect: blurEffect)
         contentView.addSubview(content)
         content.constraintToSuperview()
     }

@@ -14,8 +14,10 @@ final class ActionsListScrollView: UIScrollView {
     
     // MARK: - Instantiate methods
     
-    static func instantiate(withComponents components: [UIView],
-                            blurEffect: UIBlurEffect) -> ActionsListScrollView {
+    static func instantiate(
+        withComponents components: [UIView],
+        blurEffect: UIBlurEffect) -> ActionsListScrollView {
+        
         let list = ActionsListScrollView()
         
         list.bounces = false
@@ -23,8 +25,9 @@ final class ActionsListScrollView: UIScrollView {
         list.showsHorizontalScrollIndicator = false
         list.clipsToBounds = true
         
-        list.createControl(withComponents: components,
-                           blurEffect: blurEffect)
+        list.createControl(
+            withComponents: components,
+            blurEffect: blurEffect)
         
         return list
     }
@@ -35,9 +38,7 @@ final class ActionsListScrollView: UIScrollView {
         control.revertActionsOrder()
         isReverted = !isReverted
         if isReverted {
-            setContentOffset(CGPoint(x: 0,
-                                     y: contentSize.height - bounds.height),
-                             animated: false)
+            setContentOffset(CGPoint(x: 0, y: contentSize.height - bounds.height), animated: false)
         } else {
             setContentOffset(CGPoint.zero, animated: false)
         }
@@ -45,16 +46,16 @@ final class ActionsListScrollView: UIScrollView {
     
     // MARK: - Private methods
     
-    private func createControl(withComponents components: [UIView],
-                               blurEffect: UIBlurEffect) {
-        control = ActionsListControl.instantiate(withComponents: components,
-                                                 blurEffect: blurEffect)
+    private func createControl(
+        withComponents components: [UIView],
+        blurEffect: UIBlurEffect) {
         
+        control = ActionsListControl.instantiate(
+            withComponents: components,
+            blurEffect: blurEffect)
         addSubview(control)
         control.constraintToSuperview()
-        widthAnchor
-            .constraint(equalTo: control.widthAnchor)
-            .isActive = true
+        widthAnchor.constraint(equalTo: control.widthAnchor).isActive = true
         
         let optionalConstraint = heightAnchor.constraint(equalTo: control.heightAnchor)
         optionalConstraint.priority = UILayoutPriorityDefaultHigh

@@ -34,12 +34,11 @@ public final class ActionsListBackgroundViewBuilder {
         }
         wasCustomized = false
         
-        NotificationCenter
-            .default
-            .addObserver(self,
-                         selector: #selector(reduceTransparencyStatusDidChange),
-                         name: .UIAccessibilityReduceTransparencyStatusDidChange,
-                         object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reduceTransparencyStatusDidChange),
+            name: .UIAccessibilityReduceTransparencyStatusDidChange,
+            object: nil)
     }
     
     /// ActionsListBackgroundViewBuilder instance

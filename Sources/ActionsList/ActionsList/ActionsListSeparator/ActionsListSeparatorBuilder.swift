@@ -22,10 +22,7 @@ struct ActionsListSeparatorBuilder {
         vibrancyView.contentView.addSubview(separator)
         
         separator.constraintToSuperview()
-        separator
-            .heightAnchor
-            .constraint(equalToConstant: 1 / UIScreen.main.scale)
-            .isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale).isActive = true
         
         return vibrancyView
     }

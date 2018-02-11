@@ -56,9 +56,11 @@ final class ActionsListContainer: UIView {
     
     // MARK: - Instantiate methods
     
-    static func instantiate(withSource source: UIView,
-                            sender: UIView,
-                            onDismissGesture: @escaping () -> Void) -> ActionsListContainer {
+    static func instantiate(
+        withSource source: UIView,
+        sender: UIView,
+        onDismissGesture: @escaping () -> Void) -> ActionsListContainer {
+        
         let list = ActionsListContainer()
         list.sender = sender
         source.isUserInteractionEnabled = false
@@ -82,10 +84,12 @@ final class ActionsListContainer: UIView {
         }
     }
     
-    func show(withAppearDuration appearDuration: TimeInterval,
-              firstStageRelativeDuration: Double,
-              appearance: ActionsListAppearance.List,
-              _ completion: (() -> Void)?) {
+    func show(
+        withAppearDuration appearDuration: TimeInterval,
+        firstStageRelativeDuration: Double,
+        appearance: ActionsListAppearance.List,
+        _ completion: (() -> Void)?) {
+        
         self.appearance = appearance
         
         setupSourceView()
@@ -98,8 +102,9 @@ final class ActionsListContainer: UIView {
             self?.actionsButtonsDictionary[model] = button
             return button
         }
-        listContainerBlurView = ActionsList.instantiate(withComponents: actionButtons,
-                                                        appearance: appearance)
+        listContainerBlurView = ActionsList.instantiate(
+            withComponents: actionButtons,
+            appearance: appearance)
         addSubview(listContainerBlurView)
         listContainerBlurView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -109,28 +114,31 @@ final class ActionsListContainer: UIView {
         
         layoutIfNeeded()
         
-        present(withAppearDuration: appearDuration,
-                firstStageRelativeDuration: firstStageRelativeDuration,
-                completion: completion)
+        present(
+            withAppearDuration: appearDuration,
+            firstStageRelativeDuration: firstStageRelativeDuration,
+            completion: completion)
     }
 
-    func hide(withDisappearDuration disappearDuration: TimeInterval,
-                     _ completion: (() -> Void)?) {
-        let transform = self.transform(listContainerBlurView.transform,
-                                       fromRect: listContainerBlurViewBoundsInPresenter,
-                                       toRect: sourceBoundsInPresenter)
+    func hide(
+        withDisappearDuration disappearDuration: TimeInterval,
+        _ completion: (() -> Void)?) {
         
-        UIView
-            .animate(
-                withDuration: disappearDuration,
-                animations: {
-                    self.setListContainerBlurViewAlpha(0)
-                    self.listContainerBlurView.transform = transform
-            }) { [weak self] (_) in
-                self?.sender.alpha = 1
-                self?.source.alpha = 0
-                self?.removeFromSuperview()
-                completion?()
+        let transform = self.transform(
+            listContainerBlurView.transform,
+            fromRect: listContainerBlurViewBoundsInPresenter,
+            toRect: sourceBoundsInPresenter)
+        
+        UIView.animate(
+            withDuration: disappearDuration,
+            animations: {
+                self.setListContainerBlurViewAlpha(0)
+                self.listContainerBlurView.transform = transform
+        }) { [weak self] (_) in
+            self?.sender.alpha = 1
+            self?.source.alpha = 0
+            self?.removeFromSuperview()
+            completion?()
         }
     }
     
@@ -153,12 +161,15 @@ final class ActionsListContainer: UIView {
         onDismiss?()
     }
     
-    private func present(withAppearDuration appearDuration: TimeInterval,
-                         firstStageRelativeDuration: Double,
-                         completion: (() -> ())?) {
-        let transform = self.transform(listContainerBlurView.transform,
-                                       fromRect: listContainerBlurViewBoundsInPresenter,
-                                       toRect: sourceBoundsInPresenter)
+    private func present(
+        withAppearDuration appearDuration: TimeInterval,
+        firstStageRelativeDuration: Double,
+        completion: (() -> ())?) {
+        
+        let transform = self.transform(
+            listContainerBlurView.transform,
+            fromRect: listContainerBlurViewBoundsInPresenter,
+            toRect: sourceBoundsInPresenter)
         
         let alpha: CGFloat = 0
         sender.alpha = 0
@@ -167,44 +178,37 @@ final class ActionsListContainer: UIView {
         listContainerBlurView.content.alpha = alpha
         listContainerBlurView.transform = transform
         
-        UIView
-            .animateKeyframes(
-                withDuration: appearDuration,
-                delay: 0,
-                options: [UIViewKeyframeAnimationOptions(rawValue: UIViewAnimationOptions.curveEaseOut.rawValue)],
-                animations: {
-                    UIView
-                        .addKeyframe(
-                            withRelativeStartTime: 0,
-                            relativeDuration: firstStageRelativeDuration)
-                        { [weak self] in
-                            self?.setListContainerBlurViewAlpha(1)
-                            self?.source.transform = (self?
-                                .source
-                                .transform
-                                .scaledBy(x: self?.appearance.firstStageSourceScale ?? 0,
-                                          y: self?.appearance.firstStageSourceScale ?? 0)) ?? CGAffineTransform.identity
-                            self?.listContainerBlurView.transform = (self?
-                                .listContainerBlurView
-                                .transform
-                                .scaledBy(x: self?.appearance.firstStageListScale ?? 0,
-                                          y: self?.appearance.firstStageListScale ?? 0)) ?? CGAffineTransform.identity
+        UIView.animateKeyframes(
+            withDuration: appearDuration,
+            delay: 0,
+            options: [UIViewKeyframeAnimationOptions(rawValue: UIViewAnimationOptions.curveEaseOut.rawValue)],
+            animations: {
+                UIView.addKeyframe(
+                    withRelativeStartTime: 0,
+                    relativeDuration: firstStageRelativeDuration)
+                { [weak self] in
+                    self?.setListContainerBlurViewAlpha(1)
+                    self?.source.transform = (self?.source.transform.scaledBy(
+                        x: self?.appearance.firstStageSourceScale ?? 0,
+                        y: self?.appearance.firstStageSourceScale ?? 0)) ?? CGAffineTransform.identity
+                    self?.listContainerBlurView.transform = (self?.listContainerBlurView.transform.scaledBy(
+                        x: self?.appearance.firstStageListScale ?? 0,
+                        y: self?.appearance.firstStageListScale ?? 0)) ?? CGAffineTransform.identity
+                }
+                
+                UIView.addKeyframe(
+                    withRelativeStartTime: firstStageRelativeDuration,
+                    relativeDuration: 1 - firstStageRelativeDuration)
+                { [weak self] in
+                    if #available(iOS 10.0, *) {
+                        FeedbackGenerator.instance.generateOpen()
                     }
-                    
-                    UIView
-                        .addKeyframe(
-                            withRelativeStartTime: firstStageRelativeDuration,
-                            relativeDuration: 1 - firstStageRelativeDuration)
-                        { [weak self] in
-                            if #available(iOS 10.0, *) {
-                                FeedbackGenerator.instance.generateOpen()
-                            }
-                            self?.listContainerBlurView.content.alpha = 1
-                            self?.source.transform = CGAffineTransform.identity
-                            self?.listContainerBlurView.transform = CGAffineTransform.identity
-                    }
-            }) { finished in
-                completion?()
+                    self?.listContainerBlurView.content.alpha = 1
+                    self?.source.transform = CGAffineTransform.identity
+                    self?.listContainerBlurView.transform = CGAffineTransform.identity
+                }
+        }) { finished in
+            completion?()
         }
     }
     
@@ -218,9 +222,11 @@ final class ActionsListContainer: UIView {
         }
     }
     
-    private func transform(_ transform: CGAffineTransform,
-                           fromRect from: CGRect,
-                           toRect to: CGRect) -> CGAffineTransform {
+    private func transform(
+        _ transform: CGAffineTransform,
+        fromRect from: CGRect,
+        toRect to: CGRect) -> CGAffineTransform {
+        
         let xScale: CGFloat = to.width / from.width
         let yScale: CGFloat = to.height / from.height
         let scaleTransform: CGAffineTransform = CGAffineTransform(scaleX: xScale, y: yScale)
@@ -229,30 +235,16 @@ final class ActionsListContainer: UIView {
         let yTranslate: CGFloat = to.midY - from.midY
         let translateTransform: CGAffineTransform = CGAffineTransform(translationX: xTranslate, y: yTranslate)
         
-        return transform
-            .concatenating(scaleTransform)
-            .concatenating(translateTransform)
+        return transform.concatenating(scaleTransform).concatenating(translateTransform)
     }
     
     private func setupSourceView() {
         addSubview(source)
         source.translatesAutoresizingMaskIntoConstraints = false
-        source
-            .topAnchor
-            .constraint(equalTo: sender.topAnchor)
-            .isActive = true
-        source
-            .bottomAnchor
-            .constraint(equalTo: sender.bottomAnchor)
-            .isActive = true
-        source
-            .leadingAnchor
-            .constraint(equalTo: sender.leadingAnchor)
-            .isActive = true
-        source
-            .trailingAnchor
-            .constraint(equalTo: sender.trailingAnchor)
-            .isActive = true
+        source.topAnchor.constraint(equalTo: sender.topAnchor).isActive = true
+        source.bottomAnchor.constraint(equalTo: sender.bottomAnchor).isActive = true
+        source.leadingAnchor.constraint(equalTo: sender.leadingAnchor).isActive = true
+        source.trailingAnchor.constraint(equalTo: sender.trailingAnchor).isActive = true
     }
     
     private func setupListConstraints() {
@@ -274,61 +266,31 @@ final class ActionsListContainer: UIView {
         layoutIfNeeded()
         
         if sourceBoundsInPresenter.width > listContainerBlurViewBoundsInPresenter.width {
-            source
-                .widthAnchor
-                .constraint(lessThanOrEqualTo: listContainerBlurView.widthAnchor)
-                .isActive = true
+            source.widthAnchor.constraint(lessThanOrEqualTo: listContainerBlurView.widthAnchor).isActive = true
         } else {
-            listContainerBlurView
-                .widthAnchor
-                .constraint(equalToConstant: appearance.listMinimumWidth)
-                .isActive = true
+            listContainerBlurView.widthAnchor.constraint(equalToConstant: appearance.listMinimumWidth).isActive = true
         }
         
         if listContainerBlurViewBoundsInPresenter.height > bottomFreeSpaceHeight,
             bottomFreeSpaceHeight < topFreeSpaceHeight {
-            listContainerBlurView
-                .bottomAnchor
-                .constraint(equalTo: source.topAnchor, constant: -appearance.toContentMargin)
-                .isActive = true
+            listContainerBlurView.bottomAnchor.constraint(equalTo: source.topAnchor, constant: -appearance.toContentMargin).isActive = true
             layoutIfNeeded()
             listContainerBlurView.revertActionsOrder()
         } else {
-            listContainerBlurView
-                .topAnchor
-                .constraint(equalTo: source.bottomAnchor, constant: appearance.toContentMargin)
-                .isActive = true
+            listContainerBlurView.topAnchor.constraint(equalTo: source.bottomAnchor, constant: appearance.toContentMargin).isActive = true
         }
     }
     
     private func setupLimitingConstraints() {
         if #available(iOS 11, *) {
-            listContainerBlurView
-                .topAnchor
-                .constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.topAnchor, constant: appearance.topBottomMargin)
-                .isActive = true
-            listContainerBlurView
-                .bottomAnchor
-                .constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -appearance.topBottomMargin)
-                .isActive = true
+            listContainerBlurView.topAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.topAnchor, constant: appearance.topBottomMargin).isActive = true
+            listContainerBlurView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -appearance.topBottomMargin).isActive = true
         } else {
-            listContainerBlurView
-                .topAnchor
-                .constraint(greaterThanOrEqualTo: topAnchor, constant: appearance.topBottomMargin + statusBarHeight)
-                .isActive = true
-            listContainerBlurView
-                .bottomAnchor
-                .constraint(lessThanOrEqualTo: bottomAnchor, constant: -appearance.topBottomMargin)
-                .isActive = true
+            listContainerBlurView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: appearance.topBottomMargin + statusBarHeight).isActive = true
+            listContainerBlurView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -appearance.topBottomMargin).isActive = true
         }
-        listContainerBlurView
-            .leadingAnchor
-            .constraint(greaterThanOrEqualTo: leadingAnchor, constant: appearance.sideMargin)
-            .isActive = true
-        listContainerBlurView
-            .trailingAnchor
-            .constraint(lessThanOrEqualTo: trailingAnchor, constant: -appearance.sideMargin)
-            .isActive = true
+        listContainerBlurView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: appearance.sideMargin).isActive = true
+        listContainerBlurView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -appearance.sideMargin).isActive = true
     }
 }
 

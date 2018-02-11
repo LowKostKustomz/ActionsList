@@ -322,12 +322,12 @@
 		E9CED9C41FE60300000C63D3 /* ActionsList */ = {
 			isa = PBXGroup;
 			children = (
-				E9CED9C51FE60300000C63D3 /* ActionsListScrollView.swift */,
-				E9CED9C61FE60300000C63D3 /* ActionsListButton */,
 				E9CED9C91FE60300000C63D3 /* ActionsList.swift */,
 				E9CED9CA1FE60300000C63D3 /* ActionsListContainer.swift */,
 				E9CED9CB1FE60300000C63D3 /* ActionsListControl.swift */,
+				E9CED9C51FE60300000C63D3 /* ActionsListScrollView.swift */,
 				E9CED9CC1FE60300000C63D3 /* ActionsListStackViewBuilder.swift */,
+				E9CED9C61FE60300000C63D3 /* ActionsListButton */,
 				E9CED9CD1FE60300000C63D3 /* ActionsListSeparator */,
 			);
 			path = ActionsList;

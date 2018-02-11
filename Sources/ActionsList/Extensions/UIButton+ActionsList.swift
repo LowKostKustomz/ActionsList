@@ -22,8 +22,9 @@ extension UIButton {
         localButton.setTitleColor(titleColor(for: .normal), for: .normal)
         localButton.setTitle(title(for: .normal), for: .normal)
         
-        return ActionsListModel(senderView: self,
-                                sourceView: localButton,
-                                delegate: delegate)
+        return ActionsListModel(
+            senderView: self,
+            sourceView: localButton,
+            delegate: delegate)
     }
 }
