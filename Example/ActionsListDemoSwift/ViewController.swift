@@ -62,40 +62,47 @@ class ViewController: UIViewController {
         rightButton1.sizeToFit()
         rightButton1.addTarget(self, action: #selector(presentFromNavigation(button:)), for: .touchUpInside)
         
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightButton1),
-                                              UIBarButtonItem(customView: rightButton)]
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(customView: rightButton1),
+            UIBarButtonItem(customView: rightButton)]
         
-        navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "List icon"),
-                                                             style: .plain,
-                                                             target: self,
-                                                             action: #selector(presentFromNavigation(barButton:))),
-                                             UIBarButtonItem(title: "BarButton",
-                                                             style: .plain,
-                                                             target: self,
-                                                             action: #selector(presentFromNavigation(barButton:)))]
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(named: "List icon"),
+                style: .plain,
+                target: self,
+                action: #selector(presentFromNavigation(barButton:))),
+            UIBarButtonItem(
+                title: "BarButton",
+                style: .plain,
+                target: self,
+                action: #selector(presentFromNavigation(barButton:)))]
     }
     
     @objc private func clockButtonAction(sender: UIButton) {
         let list = sender.createActionsList()
         list.setupDismissAccessibility(hint: "Dismiss action label here")
-        let createAlarmAction = ActionsListDefaultButtonModel(localizedTitle: "Create Alarm",
-                                                              image: UIImage(named: "Alarm clock"),
-                                                              action: { action in
-                                                                action.list?.dismiss()
+        let createAlarmAction = ActionsListDefaultButtonModel(
+            localizedTitle: "Create Alarm",
+            image: UIImage(named: "Alarm clock"),
+            action: { action in
+                action.list?.dismiss()
         })
         createAlarmAction.setupAccessibility(accessibilityLabel: "Create Alarm")
         list.add(action: createAlarmAction)
-        let startStopwatchAction = ActionsListDefaultButtonModel(localizedTitle: "Start Stopwatch",
-                                                                 image: UIImage(named: "Stopwatch"),
-                                                                 action: { action in
-                                                                    action.list?.dismiss()
+        let startStopwatchAction = ActionsListDefaultButtonModel(
+            localizedTitle: "Start Stopwatch",
+            image: UIImage(named: "Stopwatch"),
+            action: { action in
+                action.list?.dismiss()
         })
         startStopwatchAction.setupAccessibility(accessibilityLabel: "Start Stopwatch")
         list.add(action: startStopwatchAction)
-        let startTimerAction = ActionsListDefaultButtonModel(localizedTitle: "Start Timer",
-                                                             image: UIImage(named: "Timer"),
-                                                             action: { action in
-                                                                action.list?.dismiss()
+        let startTimerAction = ActionsListDefaultButtonModel(
+            localizedTitle: "Start Timer",
+            image: UIImage(named: "Timer"),
+            action: { action in
+                action.list?.dismiss()
         })
         startTimerAction.setupAccessibility(accessibilityLabel: "Start Timer")
         list.add(action: startTimerAction)
@@ -107,23 +114,25 @@ class ViewController: UIViewController {
     @objc private func presentFromNavigation(button: UIButton) {
         let list = button.createActionsList()
         list.setupDismissAccessibility(hint: "Dismiss actions list")
-        let action1 = ActionsListDefaultButtonModel(localizedTitle: "Test",
-                                                    image: UIImage(named: "Dot"),
-                                                    action: { action in
-                                                        action.list?.dismiss {
-                                                            print("Test")
-                                                        }
+        let action1 = ActionsListDefaultButtonModel(
+            localizedTitle: "Test",
+            image: UIImage(named: "Dot"),
+            action: { action in
+                action.list?.dismiss {
+                    print("Test")
+                }
         })
         list.add(action: action1)
         action1.setupAccessibility(accessibilityLabel: "Test accessibility label")
         
-        let action2 =  ActionsListDefaultButtonModel(localizedTitle: "Test\nTest\nTest",
-                                                     image: UIImage(named: "Dot"),
-                                                     action: { action in
-                                                        action.list?.reloadActions()
-                                                        action.list?.dismiss {
-                                                            print("Test")
-                                                        }
+        let action2 =  ActionsListDefaultButtonModel(
+            localizedTitle: "Test\nTest\nTest",
+            image: UIImage(named: "Dot"),
+            action: { action in
+                action.list?.reloadActions()
+                action.list?.dismiss {
+                    print("Test")
+                }
         })
         action2.appearance.font = UIFont.systemFont(ofSize: 10, weight: UIFontWeightBold)
         action2.appearance.highlightedBackgroundColor = UIColor.red
@@ -139,24 +148,27 @@ class ViewController: UIViewController {
     }
     
     @objc private func presentFromNavigation(barButton: UIBarButtonItem) {
-        let list = barButton.createActionsList(withColor: UIColor.red,
-                                               font: UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular))
+        let list = barButton.createActionsList(
+            withColor: UIColor.red,
+            font: UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular))
         list?.setupDismissAccessibility(hint: "Double tap to dismiss")
-        let action1 = ActionsListDefaultButtonModel(localizedTitle: "Test\nTest",
-                                                    image: UIImage(named: "Dot"),
-                                                    action: { action in
-                                                        action.list?.dismiss {
-                                                            print("Test")
-                                                        }
+        let action1 = ActionsListDefaultButtonModel(
+            localizedTitle: "Test\nTest",
+            image: UIImage(named: "Dot"),
+            action: { action in
+                action.list?.dismiss {
+                    print("Test")
+                }
         })
         action1.setupAccessibility(accessibilityLabel: "Double test accessibility label")
         list?.add(action: action1)
-        let action2 = ActionsListDefaultButtonModel(localizedTitle: "Test\nTest\nTest\nTest",
-                                                    image: UIImage(named: "Dot"),
-                                                    action: { action in
-                                                        action.list?.dismiss {
-                                                            print("Test")
-                                                        }
+        let action2 = ActionsListDefaultButtonModel(
+            localizedTitle: "Test\nTest\nTest\nTest",
+            image: UIImage(named: "Dot"),
+            action: { action in
+                action.list?.dismiss {
+                    print("Test")
+                }
         })
         action2.setupAccessibility(accessibilityLabel: "Quadruple test accessibility label")
         list?.add(action: action2)
