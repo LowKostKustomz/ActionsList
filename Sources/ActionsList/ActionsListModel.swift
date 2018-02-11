@@ -1,6 +1,6 @@
 //
 //  ActionsList
-//  Copyright © 2017 Yegor Miroshnichenko. Licensed under the MIT license.
+//  Copyright © 2017-2018 Yegor Miroshnichenko. Licensed under the MIT license.
 //
 
 import UIKit
@@ -44,7 +44,7 @@ import UIKit
     /// Initializes list
     ///
     /// - Parameters:
-    ///   - senderView: event sender, will be hided while presenting list
+    ///   - senderView: event sender, will be hidden while presenting list
     ///   - sourceView: list source, copy of the `senderView`, displayed above the `ActionsListBackgroundView`
     ///   - delegate: list delegate
     /// - Note: Must be used from main thread only

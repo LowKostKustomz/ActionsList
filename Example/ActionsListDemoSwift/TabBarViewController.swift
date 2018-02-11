@@ -1,6 +1,6 @@
 //
 //  ActionsList
-//  Copyright © 2017 LowKostKustomz. All rights reserved.
+//  Copyright © 2017-2018 LowKostKustomz. All rights reserved.
 //
 
 import UIKit
