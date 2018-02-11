@@ -40,7 +40,7 @@ final class ActionsListPresenter: UIView {
         actionsListPresenter.setupBackgroundView()
         actionsListPresenter.setupActionsListContainer(withSource: source, sender: sender)
         
-        NotificationCenter.default.addObserver(
+        ActionsListNotificationCenter.addObserver(
             actionsListPresenter,
             selector: #selector(reduceTransparencyStatusDidChange),
             name: .reduceTransparencyStatusDidChange,
