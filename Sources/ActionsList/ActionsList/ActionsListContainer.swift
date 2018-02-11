@@ -9,6 +9,7 @@ final class ActionsListContainer: UIView {
     
     // MARK: - Private fields
 
+    private var dismissGestureView: UIView!
     private var listContainerBlurView: ActionsList!
     private var actionsButtonsDictionary: [ActionsListDefaultButtonModel: ActionsListButton] = [:]
     private var actions: [ActionsListDefaultButtonModel] = []
@@ -54,6 +55,19 @@ final class ActionsListContainer: UIView {
         return actions.count != 0
     }
     
+    override func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
+        return listContainerBlurView.accessibilityScroll(direction)
+    }
+    
+    override var accessibilityElements: [Any]? {
+        get {
+            var elements = (listContainerBlurView.accessibilityElements ?? [])
+            elements.insert(dismissGestureView, at: 0)
+            return elements
+        }
+        set { }
+    }
+    
     // MARK: - Instantiate methods
     
     static func instantiate(
@@ -64,6 +78,8 @@ final class ActionsListContainer: UIView {
         let list = ActionsListContainer()
         list.sender = sender
         source.isUserInteractionEnabled = false
+        source.makeNotAccessible()
+        source.accessibilityElementsHidden = true
         list.source = source
         list.bringSubview(toFront: list.source)
         list.onDismiss = onDismissGesture
@@ -142,10 +158,16 @@ final class ActionsListContainer: UIView {
         }
     }
     
+    func setupDismissAccessibility(hint: String?) {
+        dismissGestureView.accessibilityTraits = UIAccessibilityTraitNone
+        dismissGestureView.accessibilityLabel = hint
+    }
+    
     // MARK: - Private methods
     
     private func setupDismissGestureRecognizer() {
-        let dismissGestureView: UIView = UIView()
+        dismissGestureView = UIView()
+        dismissGestureView.isAccessibilityElement = true
         
         let dismissGestureRecognizer = UITapGestureRecognizer()
         dismissGestureRecognizer.cancelsTouchesInView = false

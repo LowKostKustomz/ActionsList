@@ -13,6 +13,8 @@ public enum ActionsListBackgroundViewType {
     case custom(backgroundView: BackgroundView)
 }
 
+let ActionsListNotificationCenter = NotificationCenter()
+
 extension Notification.Name {
     static var reduceTransparencyStatusDidChange = Notification.Name(rawValue: "ActionsListReduceTransparencyStatusDidChange")
 }
@@ -115,6 +117,6 @@ public final class ActionsListBackgroundViewBuilder {
         default:
             break
         }
-        NotificationCenter.default.post(name: .reduceTransparencyStatusDidChange, object: nil)
+        ActionsListNotificationCenter.post(name: .reduceTransparencyStatusDidChange, object: nil)
     }
 }

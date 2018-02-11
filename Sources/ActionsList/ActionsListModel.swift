@@ -61,6 +61,14 @@ import UIKit
             delegate: delegate)
     }
     
+    /// Sets up accessibility for actions list
+    ///
+    /// - Parameter hint: hint to pronounce for "tap background to dismiss list" action
+    @objc(setupDismissAccessibilityHint:)
+    public func setupDismissAccessibility(hint: String?) {
+        presenter.setupDismissAccessibility(hint: hint)
+    }
+    
     /// Adds action to list
     ///
     /// - Parameter action: action to add

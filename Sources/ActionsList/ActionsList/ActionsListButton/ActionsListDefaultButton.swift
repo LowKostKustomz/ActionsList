@@ -89,6 +89,10 @@ extension ActionsListDefaultButton: ActionsListButton {
     }
     
     func update(withModel model: ActionsListDefaultButtonModel) {
+        isAccessibilityElement = model.isAccessibilityElement
+        accessibilityTraits = UIAccessibilityTraitButton
+        accessibilityLabel = model.accessibilityLabel
+        
         appearance = model.appearance
         set(localizedTitle: model.localizedTitle)
         set(image: model.image)
@@ -106,6 +110,7 @@ extension ActionsListDefaultButton {
     
     fileprivate func createLabel() -> UILabel {
         let label = UILabel()
+        label.makeNotAccessible()
         label.numberOfLines = 0
         label.textAlignment = .left
         
@@ -142,6 +147,7 @@ extension ActionsListDefaultButton {
     
     fileprivate func createImageView() -> UIImageView? {
         let imageView = UIImageView()
+        imageView.makeNotAccessible()
         imageView.contentMode = .scaleAspectFill
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -180,6 +186,7 @@ extension ActionsListDefaultButton {
     
     fileprivate func createStackView() {
         stackView = UIStackView()
+        stackView.makeNotAccessible()
         addSubview(stackView)
         
         stackView.alignment = .center

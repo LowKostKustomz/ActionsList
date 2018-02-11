@@ -12,6 +12,15 @@ final class ActionsListScrollView: UIScrollView {
     private var control: ActionsListControl!
     private var isReverted: Bool = false
     
+    // MARK: - Public fields
+    
+    override var accessibilityElements: [Any]? {
+        get {
+            return control.accessibilityElements
+        }
+        set { }
+    }
+    
     // MARK: - Instantiate methods
     
     static func instantiate(
@@ -19,6 +28,14 @@ final class ActionsListScrollView: UIScrollView {
         blurEffect: UIBlurEffect) -> ActionsListScrollView {
         
         let list = ActionsListScrollView()
+        
+        NotificationCenter.default.addObserver(
+            list,
+            selector: #selector(focusedElementChanged(_:)),
+            name: .UIAccessibilityElementFocused,
+            object: nil)
+        
+        list.makeNotAccessible()
         
         list.bounces = false
         list.showsVerticalScrollIndicator = false
@@ -44,7 +61,69 @@ final class ActionsListScrollView: UIScrollView {
         }
     }
     
+    override func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
+        switch direction {
+        case .down,
+             .up:
+            let contentHeight = contentSize.height
+            let viewHeight = bounds.height
+            
+            if contentHeight <= viewHeight {
+                return false
+            }
+
+            let currentOffset = contentOffset
+            let newOffsetY: CGFloat
+            if direction == .up {
+                if currentOffset.y == 0 {
+                    return false
+                }
+                newOffsetY = max(0, currentOffset.y - viewHeight)
+            } else {
+                if viewHeight + currentOffset.y == contentHeight {
+                    return false
+                }
+                newOffsetY = min(contentHeight - viewHeight, currentOffset.y + viewHeight)
+            }
+            UIView.animate(
+                withDuration: 0.2,
+                animations: {
+                    self.contentOffset = CGPoint(x: currentOffset.x, y: newOffsetY)
+            },
+                completion: { [weak self] (finished) in
+                    guard let strongSelf = self else { return }
+                    var elements = strongSelf.control.accessibilityActions
+                    if direction == .up {
+                        elements.reverse()
+                    }
+                    
+                    let bounds = strongSelf.bounds
+                    
+                    if let element = elements.first(where: { [weak self] (view) -> Bool in
+                        let viewInBounds = view.convert(view.bounds, to: self)
+                        return bounds.intersects(viewInBounds)
+                    }) {
+                        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, element)
+                    }
+            })
+            return true
+        case .left,
+             .right,
+             .next,
+             .previous:
+            return false
+        }
+    }
+    
     // MARK: - Private methods
+    
+    @objc private func focusedElementChanged(_ notification: Notification) {
+        if let element = notification.userInfo?[UIAccessibilityFocusedElementKey] as? UIView,
+            element.isDescendant(of: self),
+            !bounds.contains(element.convert(element.bounds, to: self)) {
+            scrollRectToVisible(element.frame, animated: true)
+        }
+    }
     
     private func createControl(
         withComponents components: [UIView],

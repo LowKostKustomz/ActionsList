@@ -12,6 +12,7 @@ final class ActionsListSeparatorView: UIView {
     
     static func instantiate() -> ActionsListSeparatorView {
         let separator = ActionsListSeparatorView()
+        separator.makeNotAccessible()
         return separator
     }
     

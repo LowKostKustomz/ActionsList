@@ -63,28 +63,33 @@ class TabBarViewController: UITabBarController {
     }
     
     private func setupItems() {
-        mainTabItem = TabBarItemModel(type: .custom("Main", "Home icon"),
-                                      actionType: .controller(ViewController()))
+        mainTabItem = TabBarItemModel(
+            type: .custom("Main", "Home icon"),
+            actionType: .controller(ViewController()))
         
-        menuTabItem1 = TabBarItemModel(type: .custom(nil, "List icon"),
-                                       actionType: .action({ (model) in
-                                        self.showMenu(fromModel: model)
-                                       }))
+        menuTabItem1 = TabBarItemModel(
+            type: .custom(nil, "List icon"),
+            actionType: .action({ (model) in
+                self.showMenu(fromModel: model)
+            }))
         
-        menuTabItem2 = TabBarItemModel(type: .custom("Big Menu", "List icon"),
-                                       actionType: .action({ (model) in
-                                        self.showMenu(fromModel: model)
-                                       }))
+        menuTabItem2 = TabBarItemModel(
+            type: .custom("Big Menu", "List icon"),
+            actionType: .action({ (model) in
+                self.showMenu(fromModel: model)
+            }))
         
-        menuTabItem3 = TabBarItemModel(type: .custom("Bigger Menu", nil),
-                                       actionType: .action({ (model) in
-                                        self.showMenu(fromModel: model)
-                                       }))
+        menuTabItem3 = TabBarItemModel(
+            type: .custom("Bigger Menu", nil),
+            actionType: .action({ (model) in
+                self.showMenu(fromModel: model)
+            }))
         
-        menuTabItem4 = TabBarItemModel(type: .custom("Biggest Menu", "List icon"),
-                                       actionType: .action({ (model) in
-                                        self.showMenu(fromModel: model)
-                                       }))
+        menuTabItem4 = TabBarItemModel(
+            type: .custom("Biggest Menu", "List icon"),
+            actionType: .action({ (model) in
+                self.showMenu(fromModel: model)
+            }))
     }
     
     private func showMenu(fromModel model: TabBarItemModel) {
@@ -94,12 +99,15 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-    private func showMenu(fromItem item: UITabBarItem,
-                          model: TabBarItemModel) {
+    private func showMenu(
+        fromItem item: UITabBarItem,
+        model: TabBarItemModel) {
+        
         guard let list = item.createActionsList(withDelegate: self)
             else {
                 return
         }
+        list.setupDismissAccessibility(hint: "Double tap to dismiss")
         
         switch model.type {
         case .custom(let title, _):
@@ -119,16 +127,20 @@ class TabBarViewController: UITabBarController {
         self.list = list
     }
     
-    private func addActions(_ count: Int,
-                            toList list: ActionsListModel) {
+    private func addActions(
+        _ count: Int,
+        toList list: ActionsListModel) {
+        
         for i in 1...count {
             let title: String = [String](repeating: "Action number \(i)", count: i).joined(separator: "\n")
-            
-            list.add(action: ActionsListDefaultButtonModel(localizedTitle: title,
-                                                           image: UIImage(named: "Dot"),
-                                                           action: { action in
-                                                            action.list?.dismiss()
-            }))
+            let action = ActionsListDefaultButtonModel(
+                localizedTitle: title,
+                image: UIImage(named: "Dot"),
+                action: { action in
+                    action.list?.dismiss()
+            })
+            action.setupAccessibility(accessibilityLabel: "\(i) tests")
+            list.add(action: action)
         }
     }
     

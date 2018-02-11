@@ -103,7 +103,7 @@
 
 - (void)showMenuForItem:(UITabBarItem*)item model:(TabBarItemModel*)model {
     ActionsListModel* internalList = [item createActionsListWithDelegate:self];
-    
+    [internalList setupDismissAccessibilityHint:@"Double tap to dismiss"];
     NSString* title = model.title;
     
     if ([title isEqualToString:@"Big Menu"]) {
@@ -131,11 +131,12 @@
                 [title appendString:@"\n"];
             }
         }
-        
-        [list addAction:[[ActionsListDefaultButtonModel alloc] initWithLocalizedTitle:title
-                                                                                image:[UIImage imageNamed:@"Dot"] action:^(ActionsListDefaultButtonModel* action) {
-                                                                                    [action.list dismissWithCompletion:NULL];
-                                                                                } isEnabled:YES]];
+        ActionsListDefaultButtonModel* actionModel = [[ActionsListDefaultButtonModel alloc] initWithLocalizedTitle:title
+                                                                                                             image:[UIImage imageNamed:@"Dot"] action:^(ActionsListDefaultButtonModel* action) {
+                                                                                                                 [action.list dismissWithCompletion:NULL];
+                                                                                                             } isEnabled:YES];
+        [actionModel setupAccessibilityWithAccessibilityLabel:[NSString stringWithFormat:@"%ld tests", (long)i]];
+        [list addAction:actionModel];
     }
 }
 
