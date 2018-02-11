@@ -76,7 +76,7 @@ import UIKit
         /// - Note: Do not change to save system look
         @objc public var reducedTransparencyModeBackgroundColor: UIColor = UIColor.white
         
-        static public func copyCommon() -> ActionsListAppearance.List {
+        static func copyCommon() -> ActionsListAppearance.List {
             let common = ActionsListAppearance.List.common
             let copy = ActionsListAppearance.List()
             copy.blurBackgroundColor                    = common.blurBackgroundColor
@@ -105,7 +105,7 @@ import UIKit
         /// - Note: Do not change to save system look
         @objc public var dimmingColor: UIColor = UIColor.black.withAlphaComponent(0.7)
         
-        static public func copyCommon() -> ActionsListAppearance.BackgroundView {
+        static func copyCommon() -> ActionsListAppearance.BackgroundView {
             let common = ActionsListAppearance.BackgroundView.common
             let copy = ActionsListAppearance.BackgroundView()
             copy.dimmingColor = common.dimmingColor
@@ -152,7 +152,7 @@ import UIKit
         /// - Note: Do not change to save system look
         @objc public var font: UIFont = UIFont.systemFont(ofSize: 19, weight: UIFontWeightRegular)
         
-        static public func copyCommon() -> ActionsListAppearance.Button {
+        static func copyCommon() -> ActionsListAppearance.Button {
             let common = ActionsListAppearance.Button.common
             let copy = ActionsListAppearance.Button()
             copy.highlightedBackgroundColor = common.highlightedBackgroundColor
