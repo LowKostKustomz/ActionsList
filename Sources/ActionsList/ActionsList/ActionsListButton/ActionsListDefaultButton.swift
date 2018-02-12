@@ -145,7 +145,7 @@ extension ActionsListDefaultButton {
         return attributes
     }
     
-    fileprivate func createImageView() -> UIImageView? {
+    fileprivate func createImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.makeNotAccessible()
         imageView.contentMode = .scaleAspectFill
@@ -165,7 +165,13 @@ extension ActionsListDefaultButton {
     fileprivate func set(image: UIImage?) {
         guard let image = image
             else {
-                imageView = nil
+                if let imageView = imageView {
+                    if stackView.arrangedSubviews.contains(imageView) {
+                        stackView.removeArrangedSubview(imageView)
+                        imageView.removeFromSuperview()
+                    }
+                    self.imageView = nil
+                }
                 return
         }
 
