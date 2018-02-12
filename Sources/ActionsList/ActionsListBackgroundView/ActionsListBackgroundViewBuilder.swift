@@ -87,6 +87,13 @@ public final class ActionsListBackgroundViewBuilder {
     }
     
     // MARK: - Public methods
+    
+    /// Resets background type to default state
+    public func reset() {
+        wasCustomized = false
+        resetBackgroundType()
+    }
+    
     func createBackgroundView() -> BackgroundView {
         switch type {
         case .blurred:
@@ -101,6 +108,11 @@ public final class ActionsListBackgroundViewBuilder {
     // MARK: - Private methods
     
     @objc private func reduceTransparencyStatusDidChange() {
+        resetBackgroundType()
+        ActionsListNotificationCenter.post(name: .reduceTransparencyStatusDidChange, object: nil)
+    }
+    
+    private func resetBackgroundType() {
         switch type {
         case .blurred:
             if !blurAvailable {
@@ -114,9 +126,8 @@ public final class ActionsListBackgroundViewBuilder {
                 wasCustomized = false
             }
             break
-        default:
+        case .custom:
             break
         }
-        ActionsListNotificationCenter.post(name: .reduceTransparencyStatusDidChange, object: nil)
     }
 }
