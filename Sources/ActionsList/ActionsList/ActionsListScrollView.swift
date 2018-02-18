@@ -29,7 +29,7 @@ final class ActionsListScrollView: UIScrollView {
         
         let list = ActionsListScrollView()
         
-        NotificationCenter.default.addObserver(
+        DefaultNotificationCenter.addObserver(
             list,
             selector: #selector(focusedElementChanged(_:)),
             name: .UIAccessibilityElementFocused,

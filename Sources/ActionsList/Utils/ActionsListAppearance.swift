@@ -74,41 +74,13 @@ import UIKit
         /// List background color when `Reduce Transparency` toggle
         /// in `General->Accessibility->Increase Contrast` is on
         /// - Note: Do not change to save system look
-        @objc public var reducedTransparencyModeBackgroundColor: UIColor = UIColor.white
+        @objc public var reducedTransparencyModeBackgroundColor: UIColor = UIColor.white.withAlphaComponent(0.8)
         
         static func copyCommon() -> ActionsListAppearance.List {
             let common = ActionsListAppearance.List.common
             let copy = ActionsListAppearance.List()
             copy.blurBackgroundColor                    = common.blurBackgroundColor
             copy.reducedTransparencyModeBackgroundColor = common.reducedTransparencyModeBackgroundColor
-            return copy
-        }
-    }
-    
-    /// Custmize background views appearance.
-    @objc(ActionsListBackgroundViewAppearance)
-    public final class BackgroundView: NSObject {
-        
-        private override init() { }
-        
-        /// Used as default appearance for all newly created background views.
-        ///
-        /// To change all background views default appearance change this property.
-        /// - Note: Do not change to save system look
-        @objc public static let common: BackgroundView = BackgroundView()
-        
-        /// Blurred background view blur effect
-        /// - Note: Do not change to save system look
-        let blurEffect: UIBlurEffect = UIBlurEffect(style: .light)
-        
-        /// Dimmed background view dimming color
-        /// - Note: Do not change to save system look
-        @objc public var dimmingColor: UIColor = UIColor.black.withAlphaComponent(0.7)
-        
-        static func copyCommon() -> ActionsListAppearance.BackgroundView {
-            let common = ActionsListAppearance.BackgroundView.common
-            let copy = ActionsListAppearance.BackgroundView()
-            copy.dimmingColor = common.dimmingColor
             return copy
         }
     }

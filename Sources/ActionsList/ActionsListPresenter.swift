@@ -13,7 +13,7 @@ final class ActionsListPresenter: UIView {
     private let disappearDuration: TimeInterval = TimeInterval(UINavigationControllerHideShowBarDuration)
     
     private weak var delegate: ActionsListDelegate?
-    private var backgroundView: BackgroundView!
+    private var backgroundView: BackgroundViewType!
     private var actionsListContainer: ActionsListContainer!
     private var presenter: UIView!
     
@@ -39,12 +39,6 @@ final class ActionsListPresenter: UIView {
         actionsListPresenter.presenter = actionsListPresenter.getPresenter(forSource: source)
         actionsListPresenter.setupBackgroundView()
         actionsListPresenter.setupActionsListContainer(withSource: source, sender: sender)
-        
-        ActionsListNotificationCenter.addObserver(
-            actionsListPresenter,
-            selector: #selector(reduceTransparencyStatusDidChange),
-            name: .reduceTransparencyStatusDidChange,
-            object: nil)
         
         return actionsListPresenter
     }
@@ -152,7 +146,7 @@ final class ActionsListPresenter: UIView {
     
     private func setupBackgroundView() {
         backgroundView?.removeFromSuperview()
-        backgroundView = ActionsListBackgroundViewBuilder.instance.createBackgroundView()
+        backgroundView = BackgroundViewBuilder.instance.createBackgroundView()
         if let actionsListContainer = actionsListContainer {
             insertSubview(backgroundView, belowSubview: actionsListContainer)
         } else {
@@ -177,13 +171,5 @@ final class ActionsListPresenter: UIView {
     
     @objc private func gestureDismiss() {
         dismiss(nil)
-    }
-    
-    @objc private func reduceTransparencyStatusDidChange() {
-        setupBackgroundView()
-        backgroundView.present(
-            withAppearDuration: 0,
-            animated: false,
-            nil)
     }
 }

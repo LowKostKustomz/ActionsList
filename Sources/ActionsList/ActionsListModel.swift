@@ -9,9 +9,9 @@ import UIKit
 ///
 /// To create list just call the `init(senderView:sourceView:delegate:)` method, where:
 /// * `senderView` is the view initiated the list presenting.
-/// This view's alpha will be set to 0 before presenting to not be visible under `ActionsListBackgroundView`
+/// This view's alpha will be set to 0 before presenting to not be visible under `BackgroundView`
 /// * `sourceView` is the copy of the `senderView`.
-/// Source view will be displayed above the background view to not be dimmed or blurred with `ActionsListBackgroundView`
+/// Source view will be displayed above the background view to not be dimmed or blurred with `BackgroundView`
 /// List will appear with animation from under the source view and will be correctly placed in the view.
 /// Also `sourceView` will "pulse" while presenting list (as the app icons on force tap).
 ///
@@ -45,7 +45,7 @@ import UIKit
     ///
     /// - Parameters:
     ///   - senderView: event sender, will be hidden while presenting list
-    ///   - sourceView: list source, copy of the `senderView`, displayed above the `ActionsListBackgroundView`
+    ///   - sourceView: list source, copy of the `senderView`, displayed above the `BackgroundView`
     ///   - delegate: list delegate
     /// - Note: Must be used from main thread only
     @objc(initWithSenderView:sourceView:delegate:)

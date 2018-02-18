@@ -5,14 +5,14 @@
 
 import UIKit
 
-/// Content view for vibrancy visual effect view contained in background blur effect view to create system look
-/// (to make light blur effect view more transparent).
-private final class BlurredActionsListBackgroundVibrancyView: UIView {
+/// Content view for vibrancy visual effect view contained in background blur effect
+/// view to create system look (to make light blur effect view more transparent).
+private final class BlurredBackgroundVibrancyView: UIView {
     
     // MARK: - Instantiate methods
     
-    static func instantiate() -> BlurredActionsListBackgroundVibrancyView {
-        let vibrancy = BlurredActionsListBackgroundVibrancyView()
+    static func instantiate() -> BlurredBackgroundVibrancyView {
+        let vibrancy = BlurredBackgroundVibrancyView()
         vibrancy.tintAdjustmentMode = .dimmed
         return vibrancy
     }
@@ -26,32 +26,34 @@ private final class BlurredActionsListBackgroundVibrancyView: UIView {
 
 // MARK: -
 
-/// Blurred actions list background view.
+/// Blurred background view.
 ///
 /// Can be used only if device supports blur and if `Reduce Transparency` toggle
-/// in `General->Accessibility->Increase Contrast` is off
-final class BlurredActionsListBackgroundView: UIVisualEffectView, ActionsListBackgroundView {
+/// in `General->Accessibility->Increase Contrast` is off. Otherwise system will
+/// automatically make it dimmed.
+@objc public final class BlurredBackgroundView: UIVisualEffectView, BackgroundViewProtocol {
     
     // MARK: - Private fields
     
-    private let blurEffect = ActionsListAppearance.BackgroundView.common.blurEffect
+    private var blurEffect = BackgroundViewAppearance.common.blurEffect
     private var vibrancyView: UIVisualEffectView!
     
     // MARK: - Instantiate methods
     
-    static func instantiate() -> BlurredActionsListBackgroundView {
-        let backgroundView = BlurredActionsListBackgroundView()
-        backgroundView.createVibrancyView()
+    @objc public static func instantiate(withBlurEffect effect: UIBlurEffect) -> BlurredBackgroundView {
+        let backgroundView = BlurredBackgroundView()
+        backgroundView.blurEffect = effect
+        backgroundView.createVibrancyView(withEffect: effect)
         backgroundView.effect = nil
         return backgroundView
     }
     
-    // MARK: - ActionsListBackgroundView
+    // MARK: - BackgroundViewProtocol
     
-    func present(
+    @objc public func present(
         withAppearDuration appearDuration: TimeInterval,
         animated: Bool,
-        _ completion: (() -> Void)?) {
+        _ completion: (() -> Void)? = nil) {
         
         UIView.animate(
             withDuration: (animated ? appearDuration : 0),
@@ -64,10 +66,10 @@ final class BlurredActionsListBackgroundView: UIVisualEffectView, ActionsListBac
         })
     }
     
-    func dismiss(
+    @objc public func dismiss(
         withDisappearDuration disappearDuration: TimeInterval,
         animated: Bool,
-        _ completion: (() -> Void)?) {
+        _ completion: (() -> Void)? = nil) {
         
         UIView.animate(
             withDuration: (animated ? disappearDuration : 0),
@@ -90,11 +92,10 @@ final class BlurredActionsListBackgroundView: UIVisualEffectView, ActionsListBac
         }
     }
     
-    private func createVibrancyView() {
-        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+    private func createVibrancyView(withEffect effect: UIBlurEffect) {
+        vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: effect))
         
-        let view = BlurredActionsListBackgroundVibrancyView.instantiate()
+        let view = BlurredBackgroundVibrancyView.instantiate()
         vibrancyView.contentView.addSubview(view)
         view.constraintToSuperview()
         

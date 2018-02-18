@@ -39,7 +39,7 @@ final class ActionsList: UIVisualEffectView {
         
         list.setupAppearance()
         
-        ActionsListNotificationCenter.addObserver(
+        NotificationCenter.actionsListCenter.addObserver(
             list,
             selector: #selector(reduceTransparencyStatusDidChange),
             name: .reduceTransparencyStatusDidChange,

@@ -5,8 +5,10 @@
 
 import UIKit
 
-/// Implement this protocol to create custom background view for dimming the content under the list.
-@objc public protocol ActionsListBackgroundView {
+public typealias BackgroundViewType = UIView & BackgroundViewProtocol
+
+/// Implement this protocol for your `UIView` subclass to create custom background view for dimming the content under the list.
+@objc public protocol BackgroundViewProtocol {
     
     /// Presents background view with `appearDuration`
     ///
