@@ -1,14 +1,15 @@
 ![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)
 
 <p align="center">
-<a href=""><img alt="Swift" src="https://img.shields.io/badge/Swift-3.2+-orange.svg?style=flat" /></a>
-<a href=""><img alt="Objective-C" src="https://img.shields.io/badge/Objective--C-supported-blue.svg?style=flat" /></a>
-<a href="http://cocoapods.org/pods/ActionsList"><img alt="Platform" src="https://img.shields.io/cocoapods/p/ActionsList.svg?style=flat&label=Platform" /></a>
+<a><img alt="Swift" src="https://img.shields.io/badge/Swift-3.2+-F57C00.svg?style=flat" /></a>
+<a><img alt="Objective-C" src="https://img.shields.io/badge/Objective--C-supported-1976D2.svg?style=flat" /></a>
+<a href="https://github.com/LowKostKustomz/ActionsList/wiki"><img alt="Wiki" src="https://img.shields.io/badge/Wiki-available-lightgrey.svg?style=flat" /></a>
+<a><img alt="Platform" src="https://img.shields.io/cocoapods/p/ActionsList.svg?style=flat&label=Platform" /></a>
 <a href="https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/LICENSE"><img alt="License" src="https://img.shields.io/cocoapods/l/ActionsList.svg?style=flat&label=License" /></a>
 <br /><br />Dependency managers<br />
-<a href="http://cocoapods.org/pods/ActionsList"><img alt="Cocoapods" src="https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat&label=Cocoapods" /></a>
+<a href="http://cocoapods.org/pods/ActionsList"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat&label=CocoaPods&colorB=d32f2f" /></a>
 <a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" /></a>
-<a href="https://swiftpkgs.ng.bluemix.net/package/LowKostKustomz/ActionsList"><img alt="SwiftPackageManager" src="https://img.shields.io/badge/Swift_Package_Manager-compatible-orange.svg?style=flat" /></a>
+<a href="https://swiftpkgs.ng.bluemix.net/package/LowKostKustomz/ActionsList"><img alt="SwiftPackageManager" src="https://img.shields.io/badge/Swift_Package_Manager-compatible-F57C00.svg?style=flat" /></a>
 <br />
 </p>
 
@@ -17,7 +18,7 @@
 
 ActionsList is an iOS framework for presenting actions lists similar to Apple's Quick Actions menu. It presents and dismisses list with actions with animation from the source view.
 
-It is the best replace for the Android's floating action button in iOS if your app is following the iOS Design Guidelines.
+It is the best replacement for the Android's floating action button in iOS if your app is following the iOS Design Guidelines.
 ![ScreenShot](https://raw.githubusercontent.com/LowKostKustomz/ActionsList/master/Assets/ClocksScreenShot.png)
 
  - [Features](#features)
@@ -44,18 +45,21 @@ It is the best replace for the Android's floating action button in iOS if your a
 
 * System-like look and feel:
 
->	- actions order is reverted if list is displayed in top part of the screen;
->	- feedback is generated on list opening and action highlight (if device supports any feedback; can be disabled);
->	- blurred list background and background view (if device supports blur and "Reduce transparency" is off, otherwise dimmed view will be used; can be customized);
->	- source view pulses on list opening;
+>	- actions order is reverted if list is displayed in top part of the screen
+>	- feedback is generated on list opening and action highlight (if device supports any feedback; can be disabled)
+>	- blurred list background and background view (if device supports blur and "Reduce transparency" is off, otherwise dimmed view will be used, can be customized)
+>	- source view pulses on list opening
 
-* Safe Areas supported;
-* Universal (iPhone & iPad);
-* Change orientation supported (not fully, see [**Known Issues**](#known-issues));
+* Reduce transparency mode support
+* VoiceOver support
+* Safe Areas support
+* Universal (iPhone & iPad)
+* Objective-C support
+* Change orientation supported (not fully, see [**Known Issues**](#known-issues))
 * Highly customizable:
 
->	- no actions count limits (contained in scroll view);
->	- list background color, action's appearance and background view can be changed;
+>	- no actions count limits (contained in scroll view)
+>	- list background color, action's appearance and background view can be changed
 
 ## Requirements
 
@@ -134,56 +138,48 @@ private var list: ActionsListModel? = nil
 private func method() {
 
 	// For UIButton instance (must be in the view hierarchy)
-	let list = uiButton.createActionsList() // Use createActionsList(withDelegate:) if needed
+	let list = uiButton.createActionsList()
 	
 	// For UITabBarItem instance (must be in the view hierarchy)
-	let list = uiTabBarItem.createActionsList() // Use createActionsList(withDelegate:) if needed
+	let list = uiTabBarItem.createActionsList()
 	
 	// For UIBarButtonItem instance (must be in the view hierarchy)
-	let list = uiBarButtonItem.createActionsList() // Use createActionsList(withColor:font:delegate:) if needed
+	let list = uiBarButtonItem.createActionsList()
 	
 	// For your custom view (must be in the view hierarchy)
-	let list = ActionsListModel(senderView: viewThatEmittedListShowing, 
-				    sourceView: copyOfSenderViewToShowAboveBackgroundView, 
-				    delegate: actionsListDelegate)
+	let list = ActionsListModel(
+	    senderView: viewThatEmittedListShowing, 
+	    sourceView: copyOfSenderViewToShowAboveBackgroundView, 
+	    delegate: actionsListDelegate)
 	
 	// Add actions to list in order to 
 	list.add(action: ActionsListDefaultButtonModel(
 	    localizedTitle: "Create Alarm",
 	    image: UIImage(named: "Alarm clock"),
-	    action: { action in
-		// You can use action's list property to control it
-		                                               
+	    action: { action in                          
 		// - To dismiss
 		action.list?.dismiss()
-		                                                
-		// - To update action appearance
-		action.appearance.//anything
-		// Do not forget to reload actions to apply changes
-		action.list?.reloadActions()
 	}))
 	
 	// Present list
 	list.present()
 	
-	// Do not forget to save list to the property
+	// Do not forget to save list model to the property
 	self.list = list
 }
 ```
 
 ## Customization
 
-> **IMPORTANT**
-> 
-> Default list appearance looks and feels similar to the system menu.
+> [Wiki](https://github.com/LowKostKustomz/ActionsList/wiki) with more content and examples available
 
 ### List
 
-To customize list background colors use `ActionsListModel`'s `appearance` property or `ActionsListAppearance.List.common` to set default appearance.
+To customize list background color use `ActionsListModel`'s `appearance` property or `ActionsListAppearance.List.common` to set default appearance.
 
 ### Actions
 
-To customize actions you can use `ActionsListDefaultButtonModel`'s `appearance` property or `ActionsListAppearance.Button.common` to set default appearance.
+You can customize single action's appearance via `ActionsListDefaultButtonModel`'s `appearance` property or `ActionsListAppearance.Button.common` to set default appearance.
 
 Action can be disabled, you can control it via the `ActionsListDefaultButtonModel`'s `isEnabled` property.
 
@@ -191,24 +187,15 @@ Actions generate feedback on highlight, to manage this see [**Feedback**](#feedb
 
 ### Background View
 
-To set custom background view use `ActionsListBackgroundViewBuilder`'s type property.
-> Custom background view should implement `ActionsListBackgroundView` protocol
-
-```swift
-ActionsListBackgroundViewBuilder.instance.type = .custom(backgroundView: customBackgroundView)
-```
+You can create your own background view by implementing `ActionsListBackgroundView` protocol.
 
 To change default dimmed view dimming color use `ActionsListAppearance.BackgroundView.common.dimmingColor`
 
 ### Feedback
 
-> Taptic engine is used on iPhone 6s and iPhone 6s Plus only.
-> 
-> Haptic feedback is used on iPhone 7, iPhone 7 Plus and later.
-> 
-> Other devices do not produce feedback.
+List generates the same feedback on opening and action highlighting as system list.
 
-To disable feedback generation use `FeedbackGenerator.instance.isEnabled` property. This property manages list opening and action highlight feedback.
+To disable feedback generation use `FeedbackGenerator.instance.isEnabled` property.
 
 ## Apps Using _ActionsList_
 
