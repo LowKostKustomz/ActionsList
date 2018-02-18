@@ -170,7 +170,7 @@ final class ActionsListContainer: UIView {
         dismissGestureView.isAccessibilityElement = true
         
         let dismissGestureRecognizer = UITapGestureRecognizer()
-        dismissGestureRecognizer.cancelsTouchesInView = false
+        dismissGestureRecognizer.cancelsTouchesInView = true
         dismissGestureRecognizer.addTarget(self, action: #selector(dismiss))
         dismissGestureView.addGestureRecognizer(dismissGestureRecognizer)
         
