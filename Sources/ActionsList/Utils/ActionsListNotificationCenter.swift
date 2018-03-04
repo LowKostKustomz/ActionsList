@@ -1,9 +1,6 @@
 //
-//  Notifications.swift
-//  ActionsListSwiftDemo
-//
-//  Created by Yegor Miroshnichenko on 2/18/18.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  ActionsList
+//  Copyright © 2017-2018 Yegor Miroshnichenko. Licensed under the MIT license.
 //
 
 import Foundation
