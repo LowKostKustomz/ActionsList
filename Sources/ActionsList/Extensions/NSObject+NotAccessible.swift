@@ -11,3 +11,7 @@ extension NSObject {
         accessibilityTraits = UIAccessibilityTraitNone
     }
 }
+
+#if swift(>=5.0)
+    private let UIAccessibilityTraitNone = UIAccessibilityTraits.none
+#endif

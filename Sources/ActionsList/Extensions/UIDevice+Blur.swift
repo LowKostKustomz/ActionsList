@@ -41,3 +41,9 @@ extension UIDevice {
             || platform.isNewerThan(UIDevice.DevicePlatform.iPhoneModel.iPhone4)
     }
 }
+
+#if swift(>=5.0)
+    private func UIAccessibilityIsReduceTransparencyEnabled() -> Bool {
+        return UIAccessibility.isReduceTransparencyEnabled
+    }
+#endif

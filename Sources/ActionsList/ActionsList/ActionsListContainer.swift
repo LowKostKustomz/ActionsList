@@ -318,6 +318,22 @@ final class ActionsListContainer: UIView {
 
 // Compatibility
 
+#if swift(>=5.0)
+private let UIAccessibilityTraitNone = UIAccessibilityTraits.none
+private typealias UIViewKeyframeAnimationOptions = UIView.KeyframeAnimationOptions
+private typealias UIViewAnimationOptions = UIView.AnimationOptions
+
+private extension UIView {
+    func bringSubview(toFront view: UIView) {
+        bringSubviewToFront(view)
+    }
+
+    func sendSubview(toBack view: UIView) {
+        sendSubviewToBack(view)
+    }
+}
+#endif
+
 #if swift(>=4.0)
     private let UILayoutPriorityDefaultLow = UILayoutPriority.defaultLow
 #endif

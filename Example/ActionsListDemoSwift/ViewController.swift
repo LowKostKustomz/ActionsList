@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         // Clocks button
         
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "Clock app")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(named: "Clock app")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(clockButtonAction(sender:)), for: .touchUpInside)
         button.adjustsImageWhenHighlighted = false
         

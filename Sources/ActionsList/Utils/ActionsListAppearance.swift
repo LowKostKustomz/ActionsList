@@ -142,4 +142,5 @@ import UIKit
 
 #if swift(>=4.0)
     private let UIFontWeightRegular = UIFont.Weight.regular
+    typealias UIBlurEffectStyle = UIBlurEffect.Style
 #endif

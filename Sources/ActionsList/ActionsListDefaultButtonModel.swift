@@ -32,10 +32,17 @@ import UIKit
     }
     
     // MARK: - Hashable
-    
+
+    #if swift(>=5.0)
+    override public var hash: Int {
+        return localizedTitle.hash ^ (image?.hash ?? 0)
+    }
+    #else
     override public var hashValue: Int {
         return localizedTitle.hash ^ (image?.hash ?? 0)
     }
+    #endif
+
     
     // MARK: - Public fields
 

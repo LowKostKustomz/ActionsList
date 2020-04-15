@@ -173,3 +173,12 @@ final class ActionsListPresenter: UIView {
         dismiss(nil)
     }
 }
+
+#if swift(>=5.0)
+    private let UINavigationControllerHideShowBarDuration = UINavigationController.hideShowBarDuration
+
+    private let UIAccessibilityScreenChangedNotification = UIAccessibility.Notification.screenChanged
+    private func UIAccessibilityPostNotification(_ notification: UIAccessibility.Notification, _ argument: Any?) {
+        UIAccessibility.post(notification: notification, argument: argument)
+    }
+#endif

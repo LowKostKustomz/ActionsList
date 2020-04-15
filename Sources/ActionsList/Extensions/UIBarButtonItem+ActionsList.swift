@@ -43,3 +43,10 @@ extension UIBarButtonItem {
     }
 }
 
+#if swift(>=5.0)
+    private typealias UIImageRenderingMode = UIImage.RenderingMode
+#endif
+
+#if swift(>=4.0)
+    private let UILayoutPriorityDefaultHigh = UILayoutPriority.defaultHigh
+#endif

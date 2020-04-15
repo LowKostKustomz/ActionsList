@@ -54,3 +54,14 @@ public extension Notification.Name {
     /// Posted to `ActionsListNotificationCenter` on Reduce Transparency status change
     public static var reduceTransparencyStatusDidChange = Notification.Name(rawValue: "com.lowkostkustomz.actionslist.ReduceTransparencyStatusDidChange")
 }
+
+#if swift(>=5.0)
+import UIKit.UIAccessibility
+
+extension Notification.Name {
+
+    fileprivate static var UIAccessibilityReduceTransparencyStatusDidChange: Notification.Name {
+        return UIAccessibility.reduceTransparencyStatusDidChangeNotification
+    }
+}
+#endif

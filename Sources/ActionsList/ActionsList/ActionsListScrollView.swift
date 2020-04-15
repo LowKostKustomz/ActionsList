@@ -146,6 +146,20 @@ final class ActionsListScrollView: UIScrollView {
 
 // Compatibility
 
+#if swift(>=5.0)
+private let UIAccessibilityFocusedElementKey = UIAccessibility.focusedElementUserInfoKey
+private let UIAccessibilityLayoutChangedNotification = UIAccessibility.Notification.layoutChanged
+private func UIAccessibilityPostNotification(_ notification: UIAccessibility.Notification, _ argument: Any?) {
+    UIAccessibility.post(notification: notification, argument: argument)
+}
+
+private extension Notification.Name {
+    static var UIAccessibilityElementFocused: Notification.Name {
+        return UIAccessibility.elementFocusedNotification
+    }
+}
+#endif
+
 #if swift(>=4.0)
     private let UILayoutPriorityDefaultHigh = UILayoutPriority.defaultHigh
 #endif
