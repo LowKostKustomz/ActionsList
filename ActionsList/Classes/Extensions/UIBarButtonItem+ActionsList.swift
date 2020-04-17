@@ -28,7 +28,7 @@ extension UIBarButtonItem {
         
         let button = UIButton()
         button.backgroundColor = UIColor.clear
-        button.setImage(image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+        button.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         button.tintColor = color
         button.titleLabel?.font = font
         button.setTitleColor(color, for: .normal)

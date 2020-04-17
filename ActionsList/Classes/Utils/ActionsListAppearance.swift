@@ -133,3 +133,8 @@ public enum ActionsListAppearance {
         public var font: UIFont = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.regular)
     }
 }
+
+#if swift(>=4.0)
+    private let UIFontWeightRegular = UIFont.Weight.regular
+    typealias UIBlurEffectStyle = UIBlurEffect.Style
+#endif

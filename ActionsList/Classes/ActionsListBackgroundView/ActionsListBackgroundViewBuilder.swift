@@ -96,3 +96,14 @@ public final class ActionsListBackgroundViewBuilder {
         NotificationCenter.default.post(name: .reduceTransparencyStatusDidChange, object: nil)
     }
 }
+
+#if swift(>=4.2)
+import UIKit.UIAccessibility
+
+extension Notification.Name {
+
+    fileprivate static var UIAccessibilityReduceTransparencyStatusDidChange: Notification.Name {
+        return UIAccessibility.reduceTransparencyStatusDidChangeNotification
+    }
+}
+#endif

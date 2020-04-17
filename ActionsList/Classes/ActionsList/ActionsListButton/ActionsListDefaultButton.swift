@@ -351,3 +351,15 @@ extension ActionsListDefaultButton {
         isHighlighted = false
     }
 }
+
+// Compatibility
+
+#if swift(>=4.2)
+    fileprivate typealias NSAttributedStringKey = NSAttributedString.Key
+    fileprivate let UIAccessibilityTraitButton = UIAccessibilityTraits.button
+#endif
+
+#if swift(>=4.0)
+    private let UILayoutPriorityRequired = UILayoutPriority.required
+    private let NSForegroundColorAttributeName = NSAttributedStringKey.foregroundColor
+#endif
