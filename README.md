@@ -1,4 +1,4 @@
-![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)
+![ActionsList](https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/ActionsList/ActionsListHeader.png)
 
 [![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)]()
 [![Version](https://img.shields.io/cocoapods/v/ActionsList.svg?style=flat)](http://cocoapods.org/pods/ActionsList)
@@ -176,10 +176,10 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 ## Author
 
-![Author ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListAuthor.png)
+![Author ActionsList](https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/ActionsList/ActionsListAuthor.png)
 
-[<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Twitter.png" width="80">](https://twitter.com/LowKostKustomz)
-[<img src="https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/Socials/Email.png" width="80">](mierosh@gmail.com)
+[<img src="https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/Socials/Twitter.png" width="80">](https://twitter.com/LowKostKustomz)
+[<img src="https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/Socials/Email.png" width="80">](mierosh@gmail.com)
 
 ### All projects
 
@@ -187,7 +187,7 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 #### [ActionsList][ActionsListLink]
 
-[![ActionsList](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/ActionsList/ActionsListHeader.png)][ActionsListLink]
+[![ActionsList](https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/ActionsList/ActionsListHeader.png)][ActionsListLink]
 
 ------
 
@@ -195,7 +195,7 @@ To disable feedback generation use `FeedbackGenerator.instance.isEnabled` proper
 
 #### [StatusAlert][StatusAlertLink]
 
-[![StatusAlert](https://assets.gitlab-static.net/ZEBSTER/FrameworksAssets/raw/master/StatusAlert/StatusAlertHeader.png)][StatusAlertLink]
+[![StatusAlert](https://gitlab.com/ZEBSTER/FrameworksAssets/-/raw/master/StatusAlert/StatusAlertHeader.png)][StatusAlertLink]
 
 ## License
 
